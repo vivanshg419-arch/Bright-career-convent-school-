@@ -323,9 +323,9 @@ app.post("/api/contact", (req, res) => {
 
 app.get("/{*splat}", (req, res) => {
 
-    res.sendFile(
-        path.join(__dirname, "public", "index.html")
-    );
+   res.sendFile(
+    path.join(__dirname, "index.html")
+);
 
 });
 /* =========================
