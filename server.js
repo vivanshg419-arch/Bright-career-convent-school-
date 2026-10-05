@@ -1,31 +1,33 @@
 const express = require("express");
-
 const cors = require("cors");
-
 const bcrypt = require("bcryptjs");
-
 const jwt = require("jsonwebtoken");
-
 const Database = require("better-sqlite3");
-
 const path = require("path");
 
-const app = express(); 
+const app = express();
 
 const PORT = process.env.PORT || 3000;
-const JWT_SECRET = "BRIGHT_CAREER_CHANGE_THIS_SECRET";
+const JWT_SECRET =
+    process.env.JWT_SECRET || "BRIGHT_CAREER_LOCAL_SECRET";
 
-const db = new Database("school.db");
+const dbPath = process.env.DB_PATH || "school.db";
+const db = new Database(dbPath);
+
+// =========================
+// MIDDLEWARE
+// =========================
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Your HTML/CSS/JS/images are in the root folder
 app.use(express.static(__dirname));
 
-/* =========================
-   DATABASE
-========================= */
+// =========================
+// DATABASE
+// =========================
 
 db.prepare(`
     CREATE TABLE IF NOT EXISTS users (
@@ -47,9 +49,9 @@ db.prepare(`
     )
 `).run();
 
-/* =========================
-   DEFAULT NOTICES
-========================= */
+// =========================
+// DEFAULT NOTICES
+// =========================
 
 const noticeCount = db
     .prepare("SELECT COUNT(*) AS count FROM notices")
@@ -77,9 +79,9 @@ if (noticeCount === 0) {
     );
 }
 
-/* =========================
-   AUTH MIDDLEWARE
-========================= */
+// =========================
+// AUTH MIDDLEWARE
+// =========================
 
 function authenticate(req, res, next) {
     const authHeader = req.headers.authorization;
@@ -111,9 +113,9 @@ function authenticate(req, res, next) {
     }
 }
 
-/* =========================
-   REGISTER
-========================= */
+// =========================
+// REGISTER
+// =========================
 
 app.post("/api/register", async (req, res) => {
     try {
@@ -166,9 +168,9 @@ app.post("/api/register", async (req, res) => {
     }
 });
 
-/* =========================
-   LOGIN
-========================= */
+// =========================
+// LOGIN
+// =========================
 
 app.post("/api/login", async (req, res) => {
     try {
@@ -234,9 +236,9 @@ app.post("/api/login", async (req, res) => {
     }
 });
 
-/* =========================
-   CURRENT USER
-========================= */
+// =========================
+// CURRENT USER
+// =========================
 
 app.get("/api/me", authenticate, (req, res) => {
     const user = db
@@ -256,31 +258,35 @@ app.get("/api/me", authenticate, (req, res) => {
     res.json(user);
 });
 
-/* =========================
-   NOTICES
-========================= */
+// =========================
+// NOTICES
+// =========================
 
 app.get("/api/notices", (req, res) => {
-    const notices = db.prepare(`
-        SELECT *
-        FROM notices
-        ORDER BY created_at DESC
-    `).all();
+    const notices = db
+        .prepare(`
+            SELECT *
+            FROM notices
+            ORDER BY created_at DESC
+        `)
+        .all();
 
     res.json(notices);
 });
 
-/* =========================
-   PROTECTED DASHBOARD DATA
-========================= */
+// =========================
+// DASHBOARD API
+// =========================
 
 app.get("/api/dashboard", authenticate, (req, res) => {
-    const notices = db.prepare(`
-        SELECT *
-        FROM notices
-        ORDER BY created_at DESC
-        LIMIT 5
-    `).all();
+    const notices = db
+        .prepare(`
+            SELECT *
+            FROM notices
+            ORDER BY created_at DESC
+            LIMIT 5
+        `)
+        .all();
 
     res.json({
         student: {
@@ -292,9 +298,9 @@ app.get("/api/dashboard", authenticate, (req, res) => {
     });
 });
 
-/* =========================
-   CONTACT
-========================= */
+// =========================
+// CONTACT
+// =========================
 
 app.post("/api/contact", (req, res) => {
     const { name, email, message } = req.body;
@@ -317,23 +323,29 @@ app.post("/api/contact", (req, res) => {
     });
 });
 
-/* =========================
-   SPA FALLBACK
-========================= */
+// =========================
+// HTML PAGES
+// =========================
 
-app.get("/{*splat}", (req, res) => {
-
-   res.sendFile(
-    path.join(__dirname, "index.html")
-);
-
+// Homepage
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
 });
-/* =========================
-   START SERVER
-========================= */
 
+// Login page
+app.get("/login.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "login.html"));
+});
 
+// Dashboard page
+app.get("/dashboard.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "dashboard.html"));
+});
+
+// =========================
+// START SERVER
+// =========================
 
 app.listen(PORT, "0.0.0.0", () => {
-   console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
