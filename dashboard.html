@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,174 +10,1306 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Student Portal | Bright Career</title>
+    <meta
+        name="description"
+        content="Student Dashboard - Bright Career Convent Higher Secondary School"
+    >
 
+    <title>Student Dashboard | Bright Career Convent</title>
+
+    <!-- Google Font -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
+    <!-- Font Awesome -->
     <link
         rel="stylesheet"
-        href="style.css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
+
+    <style>
+
+        /* ==========================================
+           RESET
+        ========================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Poppins", sans-serif;
+
+            color: #172033;
+
+            background: #f5f7fb;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+
+        /* ==========================================
+           HEADER
+        ========================================== */
+
+        .header {
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            border-bottom: 1px solid #e8edf4;
+
+            backdrop-filter: blur(15px);
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .brand img {
+            width: 48px;
+            height: 48px;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+        }
+
+
+        .brand-text h2 {
+            color: #101828;
+
+            font-size: 16px;
+
+            line-height: 1.1;
+
+            font-weight: 800;
+        }
+
+
+        .brand-text span {
+            color: #7a8699;
+
+            font-size: 8px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        .header-right {
+            display: flex;
+            align-items: center;
+
+            gap: 18px;
+        }
+
+
+        .home-link {
+            display: flex;
+            align-items: center;
+
+            gap: 7px;
+
+            color: #667085;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        .home-link:hover {
+            color: #155eef;
+        }
+
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 10px 17px;
+
+            color: #dc2626;
+
+            background: #fff1f2;
+
+            border: 1px solid #fecdd3;
+
+            border-radius: 9px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            transition: 0.25s ease;
+        }
+
+
+        .logout-btn:hover {
+            color: white;
+
+            background: #dc2626;
+
+            border-color: #dc2626;
+        }
+
+
+        /* ==========================================
+           MAIN
+        ========================================== */
+
+        .main {
+            width: min(1200px, 92%);
+
+            margin: 0 auto;
+
+            padding: 45px 0 60px;
+        }
+
+
+        /* ==========================================
+           WELCOME
+        ========================================== */
+
+        .welcome {
+            position: relative;
+
+            overflow: hidden;
+
+            margin-bottom: 30px;
+
+            padding: 35px 40px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #155eef,
+                    #6338d8
+                );
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 15px 35px
+                rgba(21, 94, 239, 0.18);
+        }
+
+
+        .welcome::before {
+            content: "";
+
+            position: absolute;
+
+            width: 280px;
+            height: 280px;
+
+            right: -100px;
+            top: -140px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.08);
+        }
+
+
+        .welcome::after {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            right: 20%;
+
+            bottom: -130px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.06);
+        }
+
+
+        .welcome-content {
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .welcome-tag {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 7px;
+
+            margin-bottom: 12px;
+
+            padding: 6px 12px;
+
+            color: rgba(255, 255, 255, 0.9);
+
+            background:
+                rgba(255, 255, 255, 0.12);
+
+            border-radius: 50px;
+
+            font-size: 10px;
+
+            font-weight: 600;
+        }
+
+
+        .welcome h1 {
+            margin-bottom: 8px;
+
+            font-size: clamp(25px, 4vw, 38px);
+
+            font-weight: 800;
+        }
+
+
+        .welcome p {
+            max-width: 650px;
+
+            color: rgba(255, 255, 255, 0.78);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ==========================================
+           CARDS
+        ========================================== */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .card {
+            padding: 25px;
+
+            background: white;
+
+            border: 1px solid #e8edf4;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 7px 25px
+                rgba(16, 24, 40, 0.04);
+        }
+
+
+        .card-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 15px;
+
+            color: #155eef;
+
+            background: #eef4ff;
+
+            border-radius: 11px;
+
+            font-size: 17px;
+        }
+
+
+        .card h3 {
+            margin-bottom: 5px;
+
+            color: #101828;
+
+            font-size: 14px;
+        }
+
+
+        .card p {
+            color: #7a8699;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+            word-break: break-word;
+        }
+
+
+        /* ==========================================
+           SECTION
+        ========================================== */
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 17px;
+        }
+
+
+        .section-heading h2 {
+            color: #101828;
+
+            font-size: 20px;
+
+            font-weight: 800;
+        }
+
+
+        .section-heading span {
+            color: #98a2b3;
+
+            font-size: 10px;
+        }
+
+
+        /* ==========================================
+           NOTICES
+        ========================================== */
+
+        .notices {
+            display: grid;
+
+            gap: 12px;
+        }
+
+
+        .notice {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 15px;
+
+            padding: 18px;
+
+            background: white;
+
+            border: 1px solid #e8edf4;
+
+            border-radius: 13px;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .notice:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(16, 24, 40, 0.06);
+        }
+
+
+        .notice-icon {
+            flex-shrink: 0;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #155eef;
+
+            background: #eef4ff;
+
+            border-radius: 10px;
+        }
+
+
+        .notice-content {
+            flex: 1;
+        }
+
+
+        .notice-content h3 {
+            margin-bottom: 4px;
+
+            color: #172033;
+
+            font-size: 13px;
+        }
+
+
+        .notice-content p {
+            margin-bottom: 5px;
+
+            color: #667085;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        .notice-date {
+            color: #98a2b3;
+
+            font-size: 9px;
+        }
+
+
+        .empty {
+            padding: 30px;
+
+            text-align: center;
+
+            color: #98a2b3;
+
+            background: white;
+
+            border: 1px solid #e8edf4;
+
+            border-radius: 13px;
+
+            font-size: 12px;
+        }
+
+
+        /* ==========================================
+           FOOTER
+        ========================================== */
+
+        .footer {
+            padding: 22px;
+
+            text-align: center;
+
+            color: #98a2b3;
+
+            background: white;
+
+            border-top: 1px solid #e8edf4;
+
+            font-size: 10px;
+        }
+
+
+        /* ==========================================
+           LOADING
+        ========================================== */
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 35px;
+
+            color: #7a8699;
+
+            font-size: 11px;
+        }
+
+
+        .loading i {
+            color: #155eef;
+        }
+
+
+        /* ==========================================
+           ERROR
+        ========================================== */
+
+        .error-box {
+            padding: 25px;
+
+            text-align: center;
+
+            color: #dc2626;
+
+            background: #fff1f2;
+
+            border: 1px solid #fecdd3;
+
+            border-radius: 13px;
+
+            font-size: 11px;
+        }
+
+
+        /* ==========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media (max-width: 800px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+
+            .header {
+                padding: 0 4%;
+            }
+
+
+            .home-link {
+                display: none;
+            }
+
+
+            .main {
+                width: 92%;
+
+                padding-top: 30px;
+            }
+
+
+            .welcome {
+                padding: 28px 25px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .brand-text {
+                display: none;
+            }
+
+
+            .header {
+                height: 68px;
+            }
+
+
+            .brand img {
+                width: 43px;
+                height: 43px;
+            }
+
+
+            .logout-btn {
+                padding: 9px 12px;
+            }
+
+
+            .logout-btn span {
+                display: none;
+            }
+
+
+            .welcome h1 {
+                font-size: 26px;
+            }
+
+
+            .notice {
+                padding: 15px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
-<body class="dashboard-body">
+
+<body>
 
 
-<header class="dashboard-header">
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
 
-    <div class="logo">
+    <header class="header">
 
-        <div class="logo-icon">
-            BC
-        </div>
+        <a
+            href="index.html"
+            class="brand"
+        >
 
-        <div>
-            <strong>Bright Career</strong>
-            <small>Student Portal</small>
-        </div>
+            <img
+                src="logo.jpg"
+                alt="Bright Career Convent Logo"
+            >
 
-    </div>
+            <div class="brand-text">
 
-    <button
-        class="logout"
-        onclick="logout()"
-    >
-        Logout
-    </button>
+                <h2>
+                    Bright Career
+                </h2>
 
-</header>
+                <span>
+                    Convent Higher Secondary School
+                </span>
 
-
-<main class="dashboard">
-
-    <section class="welcome-card">
-
-        <div>
-
-            <span>STUDENT PORTAL</span>
-
-            <h1>
-                Welcome,
-                <strong id="studentName">
-                    Student
-                </strong>
-                👋
-            </h1>
-
-            <p>
-                Manage your school portal from one place.
-            </p>
-
-        </div>
-
-        <div class="dashboard-avatar">
-            🎓
-        </div>
-
-    </section>
-
-
-    <div class="dashboard-grid">
-
-        <div class="dashboard-card">
-
-            <div class="dashboard-icon">
-                📚
             </div>
 
-            <h3>
-                My Academics
-            </h3>
+        </a>
 
-            <p>
-                Access academic information and
-                learning resources.
-            </p>
 
-            <button>
-                Coming Soon
+        <div class="header-right">
+
+            <a
+                href="index.html"
+                class="home-link"
+            >
+
+                <i class="fas fa-home"></i>
+
+                School Website
+
+            </a>
+
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+
+                <i class="fas fa-right-from-bracket"></i>
+
+                <span>
+                    Logout
+                </span>
+
             </button>
 
         </div>
 
+    </header>
 
-        <div class="dashboard-card">
 
-            <div class="dashboard-icon">
-                📅
+    <!-- ==========================================
+         MAIN
+    ========================================== -->
+
+    <main class="main">
+
+
+        <!-- Welcome -->
+
+        <section class="welcome">
+
+            <div class="welcome-content">
+
+                <div class="welcome-tag">
+
+                    <i class="fas fa-user-graduate"></i>
+
+                    Student Dashboard
+
+                </div>
+
+
+                <h1 id="welcomeName">
+                    Welcome, Student!
+                </h1>
+
+
+                <p>
+                    Welcome to your Bright Career Convent
+                    student portal. Here you can view your
+                    account information and the latest school
+                    notices.
+                </p>
+
             </div>
 
-            <h3>
-                School Calendar
-            </h3>
-
-            <p>
-                Keep track of important school
-                events and activities.
-            </p>
-
-            <button>
-                Coming Soon
-            </button>
-
-        </div>
+        </section>
 
 
-        <div class="dashboard-card">
+        <!-- ==========================================
+             USER INFORMATION CARDS
+        ========================================== -->
 
-            <div class="dashboard-icon">
-                📝
+        <section class="cards">
+
+
+            <!-- Name -->
+
+            <div class="card">
+
+                <div class="card-icon">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+                <h3>
+                    Student Name
+                </h3>
+
+
+                <p id="studentName">
+                    Loading...
+                </p>
+
             </div>
 
-            <h3>
-                Assignments
-            </h3>
 
-            <p>
-                View homework and assignments
-                from your teachers.
-            </p>
+            <!-- Email -->
 
-            <button>
-                Coming Soon
-            </button>
+            <div class="card">
 
-        </div>
+                <div class="card-icon">
 
-    </div>
+                    <i class="fas fa-envelope"></i>
+
+                </div>
 
 
-    <section class="dashboard-notices">
-
-        <div class="dashboard-section-title">
-
-            <span>UPDATES</span>
-
-            <h2>
-                Latest Notices
-            </h2>
-
-        </div>
-
-        <div
-            id="dashboardNotices"
-            class="notice-grid"
-        ></div>
-
-    </section>
-
-</main>
+                <h3>
+                    Email Address
+                </h3>
 
 
-<script src="script.js"></script>
+                <p id="studentEmail">
+                    Loading...
+                </p>
 
-<script>
-    loadDashboard();
-</script>
+            </div>
+
+
+            <!-- Role -->
+
+            <div class="card">
+
+                <div class="card-icon">
+
+                    <i class="fas fa-id-badge"></i>
+
+                </div>
+
+
+                <h3>
+                    Account Type
+                </h3>
+
+
+                <p id="studentRole">
+                    Loading...
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ==========================================
+             NOTICES
+        ========================================== -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Latest Notices
+                </h2>
+
+
+                <span>
+                    School Updates
+                </span>
+
+            </div>
+
+
+            <div
+                class="notices"
+                id="notices"
+            >
+
+                <div class="loading">
+
+                    <i class="fas fa-spinner fa-spin"></i>
+
+                    Loading notices...
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+
+        © <span id="year"></span>
+
+        Bright Career Convent Higher Secondary School.
+
+        All rights reserved.
+
+    </footer>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+        /* ==========================================
+           AUTHENTICATION
+        ========================================== */
+
+        const token =
+            localStorage.getItem("token");
+
+
+        /*
+         * If there is no token,
+         * send the user back to login.
+         */
+
+        if (!token) {
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+        /* ==========================================
+           ELEMENTS
+        ========================================== */
+
+        const welcomeName =
+            document.getElementById(
+                "welcomeName"
+            );
+
+
+        const studentName =
+            document.getElementById(
+                "studentName"
+            );
+
+
+        const studentEmail =
+            document.getElementById(
+                "studentEmail"
+            );
+
+
+        const studentRole =
+            document.getElementById(
+                "studentRole"
+            );
+
+
+        const noticesContainer =
+            document.getElementById(
+                "notices"
+            );
+
+
+        /* ==========================================
+           LOAD DASHBOARD
+        ========================================== */
+
+        async function loadDashboard() {
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/dashboard",
+                        {
+                            method: "GET",
+
+                            headers: {
+                                "Authorization":
+                                    "Bearer " + token
+                            }
+                        }
+                    );
+
+
+                /*
+                 * If token expired or invalid,
+                 * log the user out.
+                 */
+
+                if (
+                    response.status === 401
+                ) {
+
+                    logout();
+
+                    return;
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to load dashboard."
+                    );
+
+                }
+
+
+                /* ==============================
+                   STUDENT INFORMATION
+                ============================== */
+
+                const student =
+                    data.student;
+
+
+                if (student) {
+
+                    welcomeName.textContent =
+                        "Welcome, " +
+                        student.name +
+                        "!";
+
+
+                    studentName.textContent =
+                        student.name || "—";
+
+
+                    studentEmail.textContent =
+                        student.email || "—";
+
+
+                    studentRole.textContent =
+                        formatRole(
+                            student.role
+                        );
+
+                }
+
+
+                /* ==============================
+                   NOTICES
+                ============================== */
+
+                displayNotices(
+                    data.notices || []
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Dashboard error:",
+                    error
+                );
+
+
+                noticesContainer.innerHTML = `
+                    <div class="error-box">
+                        <i class="fas fa-circle-exclamation"></i>
+                        <br><br>
+                        Unable to load dashboard.
+                        Please refresh the page and try again.
+                    </div>
+                `;
+
+            }
+
+        }
+
+
+        /* ==========================================
+           DISPLAY NOTICES
+        ========================================== */
+
+        function displayNotices(notices) {
+
+            if (!notices.length) {
+
+                noticesContainer.innerHTML = `
+                    <div class="empty">
+                        <i class="fas fa-bell-slash"></i>
+                        <br><br>
+                        No notices available right now.
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            noticesContainer.innerHTML =
+                notices
+                    .map(
+                        notice => {
+
+                            return `
+                                <article class="notice">
+
+                                    <div class="notice-icon">
+
+                                        <i class="fas fa-bell"></i>
+
+                                    </div>
+
+
+                                    <div class="notice-content">
+
+                                        <h3>
+                                            ${escapeHTML(
+                                                notice.title
+                                            )}
+                                        </h3>
+
+
+                                        <p>
+                                            ${escapeHTML(
+                                                notice.description
+                                            )}
+                                        </p>
+
+
+                                        <span class="notice-date">
+
+                                            ${formatDate(
+                                                notice.created_at
+                                            )}
+
+                                        </span>
+
+                                    </div>
+
+                                </article>
+                            `;
+
+                        }
+                    )
+                    .join("");
+
+        }
+
+
+        /* ==========================================
+           FORMAT ROLE
+        ========================================== */
+
+        function formatRole(role) {
+
+            if (!role) {
+                return "Student";
+            }
+
+
+            return role.charAt(0).toUpperCase()
+                + role.slice(1);
+
+        }
+
+
+        /* ==========================================
+           FORMAT DATE
+        ========================================== */
+
+        function formatDate(date) {
+
+            if (!date) {
+                return "";
+            }
+
+
+            const parsedDate =
+                new Date(date);
+
+
+            if (Number.isNaN(
+                parsedDate.getTime()
+            )) {
+
+                return date;
+
+            }
+
+
+            return parsedDate.toLocaleDateString(
+                "en-IN",
+                {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric"
+                }
+            );
+
+        }
+
+
+        /* ==========================================
+           HTML SECURITY
+        ========================================== */
+
+        function escapeHTML(value) {
+
+            return String(value ?? "")
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+        /* ==========================================
+           LOGOUT
+        ========================================== */
+
+        function logout() {
+
+            localStorage.removeItem(
+                "token"
+            );
+
+            localStorage.removeItem(
+                "user"
+            );
+
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+        const logoutBtn =
+            document.getElementById(
+                "logoutBtn"
+            );
+
+
+        if (logoutBtn) {
+
+            logoutBtn.addEventListener(
+                "click",
+                logout
+            );
+
+        }
+
+
+        /* ==========================================
+           YEAR
+        ========================================== */
+
+        document.getElementById(
+            "year"
+        ).textContent =
+            new Date().getFullYear();
+
+
+        /* ==========================================
+           START
+        ========================================== */
+
+        if (token) {
+
+            loadDashboard();
+
+        }
+
+    </script>
 
 </body>
+
 </html>
