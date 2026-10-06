@@ -1,7 +1,7 @@
 {
-  "name": "bright-career-school",
+  "name": "bright-career-convent-school",
   "version": "1.0.0",
-  "description": "Bright Career Convent Higher Secondary School Website",
+  "description": "Bright Career Convent Higher Secondary School website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -9,9 +9,12 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "better-sqlite3": "^11.3.0",
+    "better-sqlite3": "^11.10.0",
     "cors": "^2.8.5",
-    "express": "^4.21.1",
+    "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
