@@ -107,13 +107,10 @@
                 Password
             </label>
 
-            <input
-                type="password"
-                id="loginPassword"
-                placeholder="••••••••"
-                required
-            >
-
+           <div class="password-box">
+    <input type="password" id="password" placeholder="Password">
+    <button type="button" class="eye-btn" onclick="togglePassword('password', this)">👁️</button>
+</div>
             <button
                 type="submit"
                 class="btn primary full"
