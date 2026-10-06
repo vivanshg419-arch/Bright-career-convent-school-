@@ -1,690 +1,1029 @@
-/* =========================
-   MOBILE MENU
-========================= */
+/* =========================================================
+   BRIGHT CAREER CONVENT HIGHER SECONDARY SCHOOL
+   MAIN JAVASCRIPT
+========================================================= */
 
-function toggleMenu() {
-    const nav = document.querySelector("nav");
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (nav) {
-        nav.classList.toggle("active");
-    }
-}
+    /* =====================================================
+       LOADER
+    ===================================================== */
 
+    const loader = document.getElementById("loader");
 
-/* =========================
-   SCROLL ANIMATIONS
-========================= */
-
-const observer = new IntersectionObserver(
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            if (loader) {
+                loader.classList.add("hidden");
             }
-
-        });
-
-    },
-    {
-        threshold: 0.12
-    }
-);
-
-
-document.querySelectorAll(".reveal").forEach(element => {
-    observer.observe(element);
-});
-
-
-/* =========================
-   COUNTERS
-========================= */
-
-function animateCounter(element) {
-
-    const target = Number(
-        element.dataset.number
-    );
-
-    let current = 0;
-
-    const duration = 1500;
-
-    const start = performance.now();
-
-    function update(time) {
-
-        const progress = Math.min(
-            (time - start) / duration,
-            1
-        );
-
-        current = Math.floor(
-            progress * target
-        );
-
-        element.textContent =
-            current.toLocaleString();
-
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        }
-
-    }
-
-    requestAnimationFrame(update);
-}
-
-
-const counterObserver = new IntersectionObserver(
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (
-                entry.isIntersecting &&
-                !entry.target.dataset.animated
-            ) {
-
-                entry.target.dataset.animated = "true";
-
-                animateCounter(entry.target);
-
-            }
-
-        });
-
-    },
-    {
-        threshold: .5
-    }
-);
-
-
-document
-    .querySelectorAll("[data-number]")
-    .forEach(counter => {
-        counterObserver.observe(counter);
+        }, 500);
     });
 
 
-/* =========================
-   LOAD NOTICES
-========================= */
+    /* =====================================================
+       HEADER SCROLL EFFECT
+    ===================================================== */
 
-async function loadNotices() {
+    const header = document.getElementById("header");
 
-    const container =
-        document.getElementById("notices");
+    function handleHeaderScroll() {
 
-    if (!container) return;
+        if (!header) return;
 
-    try {
+        if (window.scrollY > 40) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    }
 
-        const response =
-            await fetch("/api/notices");
+    window.addEventListener("scroll", handleHeaderScroll);
 
-        const notices =
-            await response.json();
+    handleHeaderScroll();
 
-        container.innerHTML = "";
 
-        notices.forEach(notice => {
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
 
-            const card =
-                document.createElement("div");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-            card.className =
-                "notice-card reveal visible";
+    if (menuToggle && navLinks) {
 
-            const date =
-                new Date(notice.created_at)
-                .toLocaleDateString(
-                    "en-IN",
-                    {
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric"
-                    }
-                );
+        menuToggle.addEventListener("click", () => {
 
-            card.innerHTML = `
-                <div class="date">
-                    ${date}
-                </div>
+            navLinks.classList.toggle("active");
 
-                <h3>
-                    ${escapeHTML(notice.title)}
-                </h3>
+            const icon = menuToggle.querySelector("i");
 
-                <p>
-                    ${escapeHTML(notice.description)}
-                </p>
-            `;
+            if (icon) {
 
-            container.appendChild(card);
+                if (navLinks.classList.contains("active")) {
+
+                    icon.classList.remove("fa-bars");
+                    icon.classList.add("fa-xmark");
+
+                    document.body.classList.add("no-scroll");
+
+                } else {
+
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+
+                    document.body.classList.remove("no-scroll");
+                }
+            }
+        });
+
+
+        /* Close menu after clicking a link */
+
+        const links = navLinks.querySelectorAll("a");
+
+        links.forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+
+                document.body.classList.remove("no-scroll");
+
+                const icon = menuToggle.querySelector("i");
+
+                if (icon) {
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+                }
+            });
 
         });
 
-    } catch (error) {
+    }
 
-        container.innerHTML = `
-            <div class="notice-card">
-                Unable to load notices.
+
+    /* =====================================================
+       ACTIVE NAVIGATION LINK
+    ===================================================== */
+
+    const sections = document.querySelectorAll("section[id]");
+    const navigationLinks = document.querySelectorAll(
+        ".nav-links a[href^='#']"
+    );
+
+
+    function updateActiveNav() {
+
+        let currentSection = "";
+
+        sections.forEach(section => {
+
+            const sectionTop = section.offsetTop - 150;
+            const sectionHeight = section.offsetHeight;
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY < sectionTop + sectionHeight
+            ) {
+                currentSection = section.getAttribute("id");
+            }
+
+        });
+
+
+        navigationLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            const target = link.getAttribute("href");
+
+            if (target === `#${currentSection}`) {
+                link.classList.add("active");
+            }
+
+        });
+
+    }
+
+
+    window.addEventListener("scroll", updateActiveNav);
+
+    updateActiveNav();
+
+
+    /* =====================================================
+       BACK TO TOP
+    ===================================================== */
+
+    const backToTop = document.getElementById("backToTop");
+
+    if (backToTop) {
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 500) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+
+        });
+
+
+        backToTop.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    }
+
+
+    /* =====================================================
+       FOOTER YEAR
+    ===================================================== */
+
+    const year = document.getElementById("year");
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+
+
+    /* =====================================================
+       COUNTER ANIMATION
+    ===================================================== */
+
+    const counters = document.querySelectorAll(".counter");
+
+    let countersStarted = false;
+
+
+    function startCounters() {
+
+        if (countersStarted) return;
+
+        if (!counters.length) return;
+
+        const statsSection =
+            document.querySelector(".stats-section");
+
+        if (!statsSection) return;
+
+
+        const sectionTop =
+            statsSection.getBoundingClientRect().top;
+
+        const screenHeight = window.innerHeight;
+
+
+        if (sectionTop < screenHeight * 0.85) {
+
+            countersStarted = true;
+
+
+            counters.forEach(counter => {
+
+                const target =
+                    Number(counter.dataset.count) || 0;
+
+                let current = 0;
+
+                const duration = 1600;
+
+                const startTime = performance.now();
+
+
+                function updateCounter(currentTime) {
+
+                    const elapsed =
+                        currentTime - startTime;
+
+                    const progress =
+                        Math.min(elapsed / duration, 1);
+
+
+                    const easedProgress =
+                        1 - Math.pow(1 - progress, 3);
+
+
+                    current =
+                        Math.floor(
+                            easedProgress * target
+                        );
+
+
+                    counter.textContent =
+                        current.toLocaleString();
+
+
+                    if (progress < 1) {
+
+                        requestAnimationFrame(
+                            updateCounter
+                        );
+
+                    } else {
+
+                        counter.textContent =
+                            target.toLocaleString();
+
+                        /*
+                         * Add + for larger achievement
+                         * numbers.
+                         */
+
+                        if (target >= 100) {
+                            counter.textContent =
+                                target.toLocaleString() + "+";
+                        }
+                    }
+
+                }
+
+
+                requestAnimationFrame(updateCounter);
+
+            });
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        startCounters
+    );
+
+    startCounters();
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements = document.querySelectorAll(
+        ".feature-card, " +
+        ".info-card, " +
+        ".facility-card, " +
+        ".notice-card, " +
+        ".why-item, " +
+        ".gallery-item, " +
+        ".contact-item"
+    );
+
+
+    revealElements.forEach(element => {
+        element.classList.add("reveal");
+    });
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+
+
+    /* =====================================================
+       LOAD NOTICES FROM BACKEND
+    ===================================================== */
+
+    const noticeGrid =
+        document.getElementById("noticeGrid");
+
+
+    async function loadNotices() {
+
+        if (!noticeGrid) return;
+
+
+        try {
+
+            const response =
+                await fetch("/api/notices");
+
+
+            if (!response.ok) {
+                throw new Error(
+                    "Unable to load notices"
+                );
+            }
+
+
+            const notices =
+                await response.json();
+
+
+            if (!Array.isArray(notices) ||
+                notices.length === 0) {
+
+                noticeGrid.innerHTML = `
+                    <div class="notice-empty">
+                        <i class="fas fa-bell"></i>
+                        <p>No notices available right now.</p>
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            noticeGrid.innerHTML =
+                notices.map(notice => {
+
+                    const date =
+                        formatDate(
+                            notice.created_at
+                        );
+
+
+                    return `
+                        <article class="notice-card">
+
+                            <div class="notice-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+
+                            <h3>
+                                ${escapeHTML(
+                                    notice.title
+                                )}
+                            </h3>
+
+                            <p>
+                                ${escapeHTML(
+                                    notice.description
+                                )}
+                            </p>
+
+                            <span class="notice-date">
+                                <i class="far fa-calendar"></i>
+                                ${date}
+                            </span>
+
+                        </article>
+                    `;
+
+                }).join("");
+
+
+            /*
+             * Add reveal animation to newly
+             * created notice cards.
+             */
+
+            const newNoticeCards =
+                noticeGrid.querySelectorAll(
+                    ".notice-card"
+                );
+
+
+            newNoticeCards.forEach(card => {
+
+                card.classList.add("reveal");
+
+                revealObserver.observe(card);
+
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                "Notice loading error:",
+                error
+            );
+
+
+            noticeGrid.innerHTML = `
+                <div class="notice-error">
+
+                    <i class="fas fa-triangle-exclamation"></i>
+
+                    <p>
+                        Unable to load notices.
+                        Please try again later.
+                    </p>
+
+                </div>
+            `;
+
+        }
+
+    }
+
+
+    loadNotices();
+
+
+    /* =====================================================
+       CONTACT FORM
+    ===================================================== */
+
+    const contactForm =
+        document.getElementById("contactForm");
+
+    const contactMessage =
+        document.getElementById("contactMessage");
+
+
+    if (contactForm) {
+
+        contactForm.addEventListener(
+            "submit",
+            async event => {
+
+                event.preventDefault();
+
+
+                const submitButton =
+                    contactForm.querySelector(
+                        ".submit-btn"
+                    );
+
+
+                const originalButtonHTML =
+                    submitButton
+                        ? submitButton.innerHTML
+                        : "";
+
+
+                if (submitButton) {
+
+                    submitButton.disabled = true;
+
+                    submitButton.innerHTML = `
+                        <span>Sending...</span>
+                        <i class="fas fa-spinner fa-spin"></i>
+                    `;
+
+                }
+
+
+                if (contactMessage) {
+
+                    contactMessage.textContent = "";
+
+                    contactMessage.className =
+                        "form-message";
+
+                }
+
+
+                const formData =
+                    new FormData(contactForm);
+
+
+                const data = {
+
+                    name:
+                        formData.get("name"),
+
+                    email:
+                        formData.get("email"),
+
+                    message:
+                        formData.get("message")
+
+                };
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/api/contact",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify(data)
+                            }
+                        );
+
+
+                    const result =
+                        await response.json();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            result.message ||
+                            "Unable to send message."
+                        );
+
+                    }
+
+
+                    if (contactMessage) {
+
+                        contactMessage.textContent =
+                            result.message ||
+                            "Your message has been received.";
+
+                        contactMessage.classList.add(
+                            "success"
+                        );
+
+                    }
+
+
+                    contactForm.reset();
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Contact form error:",
+                        error
+                    );
+
+
+                    if (contactMessage) {
+
+                        contactMessage.textContent =
+                            error.message ||
+                            "Something went wrong. Please try again.";
+
+                        contactMessage.classList.add(
+                            "error"
+                        );
+
+                    }
+
+                } finally {
+
+                    if (submitButton) {
+
+                        submitButton.disabled = false;
+
+                        submitButton.innerHTML =
+                            originalButtonHTML;
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       GALLERY IMAGE PREVIEW
+    ===================================================== */
+
+    const galleryItems =
+        document.querySelectorAll(
+            ".gallery-item"
+        );
+
+
+    galleryItems.forEach(item => {
+
+        item.addEventListener("click", () => {
+
+            const image =
+                item.querySelector("img");
+
+
+            if (!image) return;
+
+
+            openImagePreview(
+                image.src,
+                image.alt
+            );
+
+        });
+
+    });
+
+
+    function openImagePreview(
+        imageSrc,
+        imageAlt
+    ) {
+
+        const existing =
+            document.getElementById(
+                "imagePreview"
+            );
+
+
+        if (existing) {
+            existing.remove();
+        }
+
+
+        const preview =
+            document.createElement("div");
+
+
+        preview.id = "imagePreview";
+
+        preview.innerHTML = `
+            <div class="image-preview-backdrop">
+
+                <button
+                    class="image-preview-close"
+                    aria-label="Close image"
+                >
+                    <i class="fas fa-xmark"></i>
+                </button>
+
+                <img
+                    src="${escapeAttribute(
+                        imageSrc
+                    )}"
+                    alt="${escapeAttribute(
+                        imageAlt
+                    )}"
+                >
+
             </div>
         `;
 
-    }
-}
+
+        /*
+         * Temporary styles are inserted here so
+         * the image viewer works without needing
+         * another CSS file.
+         */
+
+        const style =
+            document.createElement("style");
 
 
-loadNotices();
+        style.id =
+            "image-preview-styles";
 
 
-/* =========================
-   LOGIN
-========================= */
+        style.textContent = `
 
-const loginForm =
-    document.getElementById("loginForm");
+            #imagePreview {
+                position: fixed;
+                inset: 0;
+                z-index: 99998;
+            }
 
+            .image-preview-backdrop {
+                position: absolute;
+                inset: 0;
 
-if (loginForm) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-    loginForm.addEventListener(
-        "submit",
-        async event => {
+                padding: 30px;
 
-            event.preventDefault();
+                background:
+                    rgba(4, 9, 20, 0.92);
 
-            const email =
-                document.getElementById(
-                    "loginEmail"
-                ).value;
+                backdrop-filter:
+                    blur(10px);
+            }
 
-            const password =
-                document.getElementById(
-                    "loginPassword"
-                ).value;
+            .image-preview-backdrop img {
+                max-width: 92vw;
+                max-height: 88vh;
 
-            const message =
-                document.getElementById(
-                    "loginMessage"
-                );
+                object-fit: contain;
 
-            message.textContent =
-                "Signing in...";
+                border-radius: 14px;
 
-            try {
+                box-shadow:
+                    0 30px 80px
+                    rgba(0,0,0,0.45);
 
-                const response =
-                    await fetch(
-                        "/api/login",
-                        {
-                            method: "POST",
+                animation:
+                    imageZoom 0.25s ease;
+            }
 
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
+            .image-preview-close {
+                position: absolute;
 
-                            body: JSON.stringify({
-                                email,
-                                password
-                            })
-                        }
-                    );
+                top: 22px;
+                right: 22px;
 
-                const data =
-                    await response.json();
+                width: 45px;
+                height: 45px;
 
-                if (!response.ok) {
-                    throw new Error(
-                        data.message
-                    );
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                color: white;
+
+                background:
+                    rgba(255,255,255,0.1);
+
+                border:
+                    1px solid
+                    rgba(255,255,255,0.2);
+
+                border-radius: 50%;
+
+                font-size: 18px;
+
+                cursor: pointer;
+
+                z-index: 2;
+            }
+
+            .image-preview-close:hover {
+                background:
+                    rgba(255,255,255,0.2);
+            }
+
+            @keyframes imageZoom {
+
+                from {
+                    opacity: 0;
+                    transform: scale(0.92);
                 }
 
-                localStorage.setItem(
-                    "token",
-                    data.token
-                );
-
-                localStorage.setItem(
-                    "user",
-                    JSON.stringify(data.user)
-                );
-
-                message.style.color =
-                    "#16834a";
-
-                message.textContent =
-                    "Login successful!";
-
-                setTimeout(() => {
-                    window.location.href =
-                        "dashboard.html";
-                }, 700);
-
-            } catch (error) {
-
-                message.style.color =
-                    "#e43f3f";
-
-                message.textContent =
-                    error.message;
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
 
             }
 
-        }
-    );
-
-}
+        `;
 
 
-/* =========================
-   REGISTER
-========================= */
+        document.head.appendChild(style);
 
-const registerForm =
-    document.getElementById("registerForm");
+        document.body.appendChild(preview);
+
+        document.body.classList.add(
+            "no-scroll"
+        );
 
 
-if (registerForm) {
+        const closeButton =
+            preview.querySelector(
+                ".image-preview-close"
+            );
 
-    registerForm.addEventListener(
-        "submit",
-        async event => {
 
-            event.preventDefault();
+        function closePreview() {
 
-            const name =
-                document.getElementById(
-                    "registerName"
-                ).value;
+            preview.remove();
 
-            const email =
-                document.getElementById(
-                    "registerEmail"
-                ).value;
-
-            const password =
-                document.getElementById(
-                    "registerPassword"
-                ).value;
-
-            const message =
-                document.getElementById(
-                    "registerMessage"
-                );
-
-            message.textContent =
-                "Creating account...";
-
-            try {
-
-                const response =
-                    await fetch(
-                        "/api/register",
-                        {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
-
-                            body: JSON.stringify({
-                                name,
-                                email,
-                                password
-                            })
-                        }
-                    );
-
-                const data =
-                    await response.json();
-
-                if (!response.ok) {
-                    throw new Error(
-                        data.message
-                    );
-                }
-
-                message.style.color =
-                    "#16834a";
-
-                message.textContent =
-                    "Account created! You can now login.";
-
-                registerForm.reset();
-
-                setTimeout(() => {
-                    showLogin();
-                }, 1000);
-
-            } catch (error) {
-
-                message.style.color =
-                    "#e43f3f";
-
-                message.textContent =
-                    error.message;
-
-            }
+            document.body.classList.remove(
+                "no-scroll"
+            );
 
         }
-    );
-
-}
 
 
-/* =========================
-   LOGIN TABS
-========================= */
-
-function showLogin() {
-
-    const login =
-        document.getElementById(
-            "loginForm"
+        closeButton.addEventListener(
+            "click",
+            closePreview
         );
 
-    const register =
-        document.getElementById(
-            "registerForm"
-        );
 
-    const loginTab =
-        document.getElementById(
-            "loginTab"
-        );
+        preview
+            .querySelector(
+                ".image-preview-backdrop"
+            )
+            .addEventListener(
+                "click",
+                event => {
 
-    const registerTab =
-        document.getElementById(
-            "registerTab"
-        );
-
-    if (!login) return;
-
-    login.classList.remove("hidden");
-
-    register.classList.add("hidden");
-
-    loginTab.classList.add("active");
-
-    registerTab.classList.remove("active");
-}
-
-
-function showRegister() {
-
-    const login =
-        document.getElementById(
-            "loginForm"
-        );
-
-    const register =
-        document.getElementById(
-            "registerForm"
-        );
-
-    const loginTab =
-        document.getElementById(
-            "loginTab"
-        );
-
-    const registerTab =
-        document.getElementById(
-            "registerTab"
-        );
-
-    if (!login) return;
-
-    login.classList.add("hidden");
-
-    register.classList.remove("hidden");
-
-    loginTab.classList.remove("active");
-
-    registerTab.classList.add("active");
-}
-
-
-/* =========================
-   DASHBOARD
-========================= */
-
-async function loadDashboard() {
-
-    const token =
-        localStorage.getItem("token");
-
-    if (!token) {
-
-        window.location.href =
-            "login.html";
-
-        return;
-    }
-
-    try {
-
-        const response =
-            await fetch(
-                "/api/dashboard",
-                {
-                    headers: {
-                        Authorization:
-                            `Bearer ${token}`
+                    if (
+                        event.target.classList
+                            .contains(
+                                "image-preview-backdrop"
+                            )
+                    ) {
+                        closePreview();
                     }
+
                 }
             );
 
-        if (!response.ok) {
 
-            localStorage.removeItem(
-                "token"
+        document.addEventListener(
+            "keydown",
+            function escapeHandler(event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closePreview();
+
+                    document.removeEventListener(
+                        "keydown",
+                        escapeHandler
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       SMOOTH SCROLL FOR INTERNAL LINKS
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    const targetId =
+                        link.getAttribute(
+                            "href"
+                        );
+
+
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+                        return;
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+
+                    if (!target) {
+                        return;
+                    }
+
+
+                    event.preventDefault();
+
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
             );
-
-            window.location.href =
-                "login.html";
-
-            return;
-        }
-
-        const data =
-            await response.json();
-
-        const nameElement =
-            document.getElementById(
-                "studentName"
-            );
-
-        if (nameElement) {
-            nameElement.textContent =
-                data.student.name;
-        }
-
-        const container =
-            document.getElementById(
-                "dashboardNotices"
-            );
-
-        if (!container) return;
-
-        container.innerHTML = "";
-
-        data.notices.forEach(notice => {
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "notice-card";
-
-            card.innerHTML = `
-                <div class="date">
-                    SCHOOL NOTICE
-                </div>
-
-                <h3>
-                    ${escapeHTML(notice.title)}
-                </h3>
-
-                <p>
-                    ${escapeHTML(notice.description)}
-                </p>
-            `;
-
-            container.appendChild(card);
 
         });
 
-    } catch (error) {
 
-        console.error(error);
+    /* =====================================================
+       HELPER FUNCTIONS
+    ===================================================== */
+
+    function formatDate(dateString) {
+
+        if (!dateString) {
+            return "Recent update";
+        }
+
+
+        const date =
+            new Date(dateString);
+
+
+        if (Number.isNaN(date.getTime())) {
+            return "Recent update";
+        }
+
+
+        return date.toLocaleDateString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "short",
+                year: "numeric"
+            }
+        );
 
     }
-}
 
 
-/* =========================
-   LOGOUT
-========================= */
+    function escapeHTML(value) {
 
-function logout() {
+        if (value === null ||
+            value === undefined) {
 
-    localStorage.removeItem(
-        "token"
-    );
-
-    localStorage.removeItem(
-        "user"
-    );
-
-    window.location.href =
-        "login.html";
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-const contactForm =
-    document.getElementById(
-        "contactForm"
-    );
-
-
-if (contactForm) {
-
-    contactForm.addEventListener(
-        "submit",
-        async event => {
-
-            event.preventDefault();
-
-            const name =
-                document.getElementById(
-                    "contactName"
-                ).value;
-
-            const email =
-                document.getElementById(
-                    "contactEmail"
-                ).value;
-
-            const message =
-                document.getElementById(
-                    "contactMessage"
-                ).value;
-
-            const status =
-                document.getElementById(
-                    "contactStatus"
-                );
-
-            try {
-
-                const response =
-                    await fetch(
-                        "/api/contact",
-                        {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
-
-                            body: JSON.stringify({
-                                name,
-                                email,
-                                message
-                            })
-                        }
-                    );
-
-                const data =
-                    await response.json();
-
-                if (!response.ok) {
-                    throw new Error(
-                        data.message
-                    );
-                }
-
-                status.style.color =
-                    "#6ff0a8";
-
-                status.textContent =
-                    "Message sent successfully!";
-
-                contactForm.reset();
-
-            } catch (error) {
-
-                status.style.color =
-                    "#ff8b8b";
-
-                status.textContent =
-                    error.message;
-
-            }
+            return "";
 
         }
+
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    function escapeAttribute(value) {
+
+        return escapeHTML(value);
+
+    }
+
+
+    /* =====================================================
+       FINISHED
+    ===================================================== */
+
+    console.log(
+        "Bright Career Convent website loaded successfully."
     );
 
-}
-
-
-/* =========================
-   HTML ESCAPING
-========================= */
-
-function escapeHTML(value) {
-
-    const div =
-        document.createElement("div");
-
-    div.textContent =
-        value;
-
-    return div.innerHTML;
-}
-function togglePassword(inputId, button) {
-    const input = document.getElementById(inputId);
-
-    if (input.type === "password") {
-        input.type = "text";
-        button.textContent = "🙈";
-    } else {
-        input.type = "password";
-        button.textContent = "👁️";
-    }
-}
+});
