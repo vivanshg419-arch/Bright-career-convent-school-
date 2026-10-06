@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
@@ -10,190 +9,1463 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Login | Bright Career Convent</title>
+    <meta
+        name="description"
+        content="Student Login - Bright Career Convent Higher Secondary School"
+    >
 
+    <title>Student Login | Bright Career Convent</title>
+
+    <!-- Google Font -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
+    <!-- Font Awesome -->
     <link
         rel="stylesheet"
-        href="style.css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
+
+    <style>
+
+        /* =================================================
+           RESET
+        ================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            font-family: "Poppins", sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #07101f,
+                    #10285a,
+                    #25105a
+                );
+
+            overflow-x: hidden;
+        }
+
+
+        /* =================================================
+           BACKGROUND
+        ================================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+        }
+
+
+        .circle {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(2px);
+
+            opacity: 0.25;
+        }
+
+
+        .circle-one {
+            width: 350px;
+            height: 350px;
+
+            top: -120px;
+            left: -100px;
+
+            background: #2f80ff;
+
+            animation: floatOne 8s ease-in-out infinite;
+        }
+
+
+        .circle-two {
+            width: 400px;
+            height: 400px;
+
+            right: -150px;
+            bottom: -150px;
+
+            background: #8b4dff;
+
+            animation: floatTwo 9s ease-in-out infinite;
+        }
+
+
+        .circle-three {
+            width: 180px;
+            height: 180px;
+
+            top: 30%;
+            right: 15%;
+
+            background: #00c6ff;
+
+            animation: floatThree 7s ease-in-out infinite;
+        }
+
+
+        @keyframes floatOne {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(30px, 30px);
+            }
+
+        }
+
+
+        @keyframes floatTwo {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-25px, -25px);
+            }
+
+        }
+
+
+        @keyframes floatThree {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+
+        }
+
+
+        /* =================================================
+           LOGIN WRAPPER
+        ================================================= */
+
+        .login-wrapper {
+            position: relative;
+
+            z-index: 2;
+
+            width: min(100%, 1050px);
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            overflow: hidden;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 30px 90px rgba(0, 0, 0, 0.35);
+
+            animation: loginAppear 0.7s ease;
+        }
+
+
+        @keyframes loginAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+
+        /* =================================================
+           LEFT SIDE
+        ================================================= */
+
+        .login-info {
+            position: relative;
+
+            min-height: 650px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 55px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(12, 76, 190, 0.95),
+                    rgba(83, 45, 190, 0.96)
+                );
+
+            overflow: hidden;
+        }
+
+
+        .login-info::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            right: -140px;
+            top: -100px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+
+        .login-info::after {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            left: -130px;
+            bottom: -100px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+
+        .brand {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            margin-bottom: 55px;
+        }
+
+
+        .brand img {
+            width: 65px;
+            height: 65px;
+
+            object-fit: contain;
+
+            background: white;
+
+            border-radius: 50%;
+
+            padding: 3px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .brand h2 {
+            font-size: 21px;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+
+        .brand span {
+            display: block;
+
+            margin-top: 4px;
+
+            color: rgba(255, 255, 255, 0.7);
+
+            font-size: 9px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.7px;
+        }
+
+
+        .login-info-content {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .welcome-tag {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 17px;
+
+            padding: 7px 13px;
+
+            color: rgba(255, 255, 255, 0.85);
+
+            background: rgba(255, 255, 255, 0.1);
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            border-radius: 50px;
+
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        .login-info h1 {
+            margin-bottom: 18px;
+
+            font-size: clamp(35px, 4vw, 52px);
+
+            line-height: 1.08;
+
+            font-weight: 800;
+        }
+
+
+        .login-info h1 span {
+            color: #8fc2ff;
+        }
+
+
+        .login-info-content > p {
+            max-width: 430px;
+
+            margin-bottom: 30px;
+
+            color: rgba(255, 255, 255, 0.7);
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+
+        .benefits {
+            display: flex;
+            flex-direction: column;
+
+            gap: 13px;
+        }
+
+
+        .benefit {
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+
+            color: rgba(255, 255, 255, 0.85);
+
+            font-size: 12px;
+        }
+
+
+        .benefit i {
+            width: 25px;
+            height: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            border-radius: 7px;
+
+            font-size: 11px;
+        }
+
+
+        /* =================================================
+           RIGHT SIDE
+        ================================================= */
+
+        .login-form-side {
+            display: flex;
+            align-items: center;
+
+            padding: 55px;
+        }
+
+
+        .login-form-container {
+            width: 100%;
+
+            max-width: 430px;
+
+            margin: auto;
+        }
+
+
+        .mobile-logo {
+            display: none;
+        }
+
+
+        .form-heading {
+            margin-bottom: 35px;
+        }
+
+
+        .form-heading .small-tag {
+            display: inline-block;
+
+            margin-bottom: 8px;
+
+            color: #155eef;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .form-heading h2 {
+            margin-bottom: 8px;
+
+            color: #0b1220;
+
+            font-size: 31px;
+
+            line-height: 1.2;
+
+            font-weight: 800;
+        }
+
+
+        .form-heading p {
+            color: #718096;
+
+            font-size: 12px;
+        }
+
+
+        /* =================================================
+           FORM
+        ================================================= */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #172033;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        .input-wrapper {
+            position: relative;
+        }
+
+
+        .input-wrapper > i {
+            position: absolute;
+
+            top: 50%;
+            left: 15px;
+
+            color: #94a0b2;
+
+            font-size: 13px;
+
+            transform: translateY(-50%);
+
+            pointer-events: none;
+        }
+
+
+        .input-wrapper input {
+            width: 100%;
+
+            height: 53px;
+
+            padding: 0 45px;
+
+            color: #273449;
+
+            background: #f7f9fc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 11px;
+
+            outline: none;
+
+            font-size: 12px;
+
+            transition:
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+        }
+
+
+        .input-wrapper input:focus {
+            background: white;
+
+            border-color: #155eef;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(21, 94, 239, 0.08);
+        }
+
+
+        .input-wrapper input::placeholder {
+            color: #a1aaba;
+        }
+
+
+        .password-toggle {
+            position: absolute;
+
+            top: 50%;
+            right: 14px;
+
+            width: 30px;
+            height: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #8c98aa;
+
+            background: transparent;
+
+            border: none;
+
+            transform: translateY(-50%);
+        }
+
+
+        .password-toggle:hover {
+            color: #155eef;
+        }
+
+
+        /* =================================================
+           LOGIN BUTTON
+        ================================================= */
+
+        .login-submit {
+            width: 100%;
+
+            height: 53px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 8px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #155eef,
+                    #6c3cff
+                );
+
+            border: none;
+
+            border-radius: 11px;
+
+            box-shadow:
+                0 12px 25px
+                rgba(21, 94, 239, 0.22);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .login-submit:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 16px 30px
+                rgba(21, 94, 239, 0.32);
+        }
+
+
+        .login-submit:disabled {
+            opacity: 0.7;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+
+        /* =================================================
+           MESSAGE
+        ================================================= */
+
+        .login-message {
+            min-height: 22px;
+
+            margin-top: 14px;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        .login-message.success {
+            color: #16a34a;
+        }
+
+
+        .login-message.error {
+            color: #dc2626;
+        }
+
+
+        /* =================================================
+           REGISTER
+        ================================================= */
+
+        .register-link {
+            margin-top: 28px;
+
+            padding-top: 22px;
+
+            text-align: center;
+
+            border-top: 1px solid #edf0f4;
+
+            color: #718096;
+
+            font-size: 12px;
+        }
+
+
+        .register-link a {
+            color: #155eef;
+
+            font-weight: 700;
+        }
+
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =================================================
+           BACK HOME
+        ================================================= */
+
+        .back-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+            margin-top: 18px;
+
+            color: #718096;
+
+            font-size: 11px;
+
+            transition: color 0.3s ease;
+        }
+
+
+        .back-home:hover {
+            color: #155eef;
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+        ================================================= */
+
+        @media (max-width: 850px) {
+
+            .login-wrapper {
+                grid-template-columns: 1fr;
+
+                max-width: 520px;
+            }
+
+
+            .login-info {
+                display: none;
+            }
+
+
+            .login-form-side {
+                padding: 45px 35px;
+            }
+
+
+            .mobile-logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                margin-bottom: 28px;
+            }
+
+
+            .mobile-logo img {
+                width: 72px;
+                height: 72px;
+
+                object-fit: contain;
+
+                border-radius: 50%;
+
+                box-shadow:
+                    0 10px 30px
+                    rgba(21, 94, 239, 0.15);
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            body {
+                padding: 15px;
+            }
+
+
+            .login-wrapper {
+                border-radius: 20px;
+            }
+
+
+            .login-form-side {
+                padding: 35px 22px;
+            }
+
+
+            .form-heading {
+                margin-bottom: 28px;
+
+                text-align: center;
+            }
+
+
+            .form-heading h2 {
+                font-size: 27px;
+            }
+
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
+    </style>
 
 </head>
 
-<body class="login-page">
 
-<div class="login-background"></div>
-
-<a
-    href="index.html"
-    class="back-home"
->
-    ← Back to School Website
-</a>
+<body>
 
 
-<div class="login-wrapper">
+    <!-- =================================================
+         BACKGROUND
+    ================================================= -->
 
-    <div class="login-brand">
+    <div class="background">
 
-        <div class="logo-icon big">
-            BC
-        </div>
+        <div class="circle circle-one"></div>
 
-        <h1>
-            Bright Career
-        </h1>
+        <div class="circle circle-two"></div>
 
-        <p>
-            Convent Higher Secondary School
-        </p>
+        <div class="circle circle-three"></div>
 
     </div>
 
 
-    <div class="login-box">
+    <!-- =================================================
+         LOGIN CONTAINER
+    ================================================= -->
 
-        <div class="login-tabs">
-
-            <button
-                class="active"
-                onclick="showLogin()"
-                id="loginTab"
-            >
-                Login
-            </button>
-
-            <button
-                onclick="showRegister()"
-                id="registerTab"
-            >
-                Register
-            </button>
-
-        </div>
+    <div class="login-wrapper">
 
 
-        <!-- LOGIN -->
+        <!-- =================================================
+             LEFT INFORMATION PANEL
+        ================================================= -->
 
-        <form
-            id="loginForm"
-            class="auth-form"
-        >
+        <section class="login-info">
 
-            <h2>
-                Welcome back 👋
-            </h2>
+            <div class="brand">
 
-            <p>
-                Sign in to access your school portal.
-            </p>
+                <img
+                    src="logo.jpg"
+                    alt="Bright Career Convent School Logo"
+                >
 
-            <label>
-                Email
-            </label>
+                <div>
 
-            <input
-                type="email"
-                id="loginEmail"
-                placeholder="student@example.com"
-                required
-            >
+                    <h2>
+                        Bright Career
+                    </h2>
 
-            <label>
-                Password
-            </label>
+                    <span>
+                        Convent Higher Secondary School
+                    </span>
 
-           <div class="password-box">
-    <input type="password" id="password" placeholder="Password">
-    <button type="button" class="eye-btn" onclick="togglePassword('password', this)">👁️</button>
-</div>
-            <button
-                type="submit"
-                class="btn primary full"
-            >
-                Sign In →
-            </button>
+                </div>
 
-            <div
-                id="loginMessage"
-                class="auth-message"
-            ></div>
-
-        </form>
+            </div>
 
 
-        <!-- REGISTER -->
+            <div class="login-info-content">
 
-        <form
-            id="registerForm"
-            class="auth-form hidden"
-        >
+                <div class="welcome-tag">
 
-            <h2>
-                Create account
-            </h2>
+                    <i class="fas fa-graduation-cap"></i>
 
-            <p>
-                Create your student/parent portal account.
-            </p>
+                    Student Portal
 
-            <label>
-                Full Name
-            </label>
+                </div>
 
-            <input
-                type="text"
-                id="registerName"
-                placeholder="Your full name"
-                required
-            >
 
-            <label>
-                Email
-            </label>
+                <h1>
 
-            <input
-                type="email"
-                id="registerEmail"
-                placeholder="student@example.com"
-                required
-            >
+                    Welcome
+                    <span>Back!</span>
 
-            <label>
-                Password
-            </label>
+                </h1>
 
-            <input
-                type="password"
-                id="registerPassword"
-                placeholder="Minimum 6 characters"
-                minlength="6"
-                required
-            >
 
-            <button
-                type="submit"
-                class="btn primary full"
-            >
-                Create Account →
-            </button>
+                <p>
 
-            <div
-                id="registerMessage"
-                class="auth-message"
-            ></div>
+                    Access your student dashboard and stay
+                    connected with important school updates,
+                    notices and information.
 
-        </form>
+                </p>
+
+
+                <div class="benefits">
+
+                    <div class="benefit">
+
+                        <i class="fas fa-bell"></i>
+
+                        <span>
+                            Stay updated with school notices
+                        </span>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <i class="fas fa-user-shield"></i>
+
+                        <span>
+                            Secure student account
+                        </span>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <i class="fas fa-chart-line"></i>
+
+                        <span>
+                            Access your student dashboard
+                        </span>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <i class="fas fa-mobile-screen"></i>
+
+                        <span>
+                            Works on mobile and desktop
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LOGIN FORM
+        ================================================= -->
+
+        <section class="login-form-side">
+
+            <div class="login-form-container">
+
+
+                <!-- Mobile Logo -->
+
+                <div class="mobile-logo">
+
+                    <img
+                        src="logo.jpg"
+                        alt="Bright Career Convent School Logo"
+                    >
+
+                </div>
+
+
+                <!-- Heading -->
+
+                <div class="form-heading">
+
+                    <span class="small-tag">
+                        Student Portal
+                    </span>
+
+                    <h2>
+                        Sign In
+                    </h2>
+
+                    <p>
+                        Enter your account details to continue.
+                    </p>
+
+                </div>
+
+
+                <!-- Login Form -->
+
+                <form id="loginForm">
+
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="loginEmail">
+                            Email Address
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="fas fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="loginEmail"
+                                name="email"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="fas fa-lock"></i>
+
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="passwordToggle"
+                                aria-label="Show password"
+                            >
+
+                                <i class="fas fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="login-submit"
+                        id="loginSubmit"
+                    >
+
+                        <span>
+                            Sign In
+                        </span>
+
+                        <i class="fas fa-arrow-right"></i>
+
+                    </button>
+
+
+                    <!-- Message -->
+
+                    <div
+                        id="loginMessage"
+                        class="login-message"
+                    ></div>
+
+
+                </form>
+
+
+                <!-- Register -->
+
+                <div class="register-link">
+
+                    Don't have an account?
+
+                    <a href="#" id="registerLink">
+                        Create one
+                    </a>
+
+                </div>
+
+
+                <!-- Home -->
+
+                <a
+                    href="index.html"
+                    class="back-home"
+                >
+
+                    <i class="fas fa-arrow-left"></i>
+
+                    Back to School Website
+
+                </a>
+
+
+            </div>
+
+        </section>
 
     </div>
 
-</div>
 
-<script src="script.js"></script>
+    <!-- =================================================
+         JAVASCRIPT
+    ================================================= -->
+
+    <script>
+
+        /* =================================================
+           LOGIN
+        ================================================= */
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const loginMessage =
+            document.getElementById("loginMessage");
+
+        const loginSubmit =
+            document.getElementById("loginSubmit");
+
+
+        if (loginForm) {
+
+            loginForm.addEventListener(
+                "submit",
+                async function (event) {
+
+                    event.preventDefault();
+
+
+                    const email =
+                        document
+                            .getElementById("loginEmail")
+                            .value
+                            .trim();
+
+
+                    const password =
+                        document
+                            .getElementById("loginPassword")
+                            .value;
+
+
+                    if (!email || !password) {
+
+                        showMessage(
+                            "Please enter your email and password.",
+                            "error"
+                        );
+
+                        return;
+                    }
+
+
+                    loginSubmit.disabled = true;
+
+
+                    loginSubmit.innerHTML = `
+                        <span>Signing in...</span>
+                        <i class="fas fa-spinner fa-spin"></i>
+                    `;
+
+
+                    showMessage("", "");
+
+
+                    try {
+
+                        const response =
+                            await fetch(
+                                "/api/login",
+                                {
+                                    method: "POST",
+
+                                    headers: {
+                                        "Content-Type":
+                                            "application/json"
+                                    },
+
+                                    body:
+                                        JSON.stringify({
+                                            email,
+                                            password
+                                        })
+                                }
+                            );
+
+
+                        const data =
+                            await response.json();
+
+
+                        if (!response.ok) {
+
+                            throw new Error(
+                                data.message ||
+                                "Login failed."
+                            );
+
+                        }
+
+
+                        /*
+                         * Save authentication token.
+                         */
+
+                        localStorage.setItem(
+                            "token",
+                            data.token
+                        );
+
+
+                        /*
+                         * Save user information.
+                         */
+
+                        if (data.user) {
+
+                            localStorage.setItem(
+                                "user",
+                                JSON.stringify(
+                                    data.user
+                                )
+                            );
+
+                        }
+
+
+                        showMessage(
+                            "Login successful! Redirecting...",
+                            "success"
+                        );
+
+
+                        setTimeout(() => {
+
+                            window.location.href =
+                                "dashboard.html";
+
+                        }, 700);
+
+
+                    } catch (error) {
+
+                        console.error(
+                            "Login error:",
+                            error
+                        );
+
+
+                        showMessage(
+                            error.message ||
+                            "Unable to login. Please try again.",
+                            "error"
+                        );
+
+
+                        loginSubmit.disabled = false;
+
+
+                        loginSubmit.innerHTML = `
+                            <span>Sign In</span>
+                            <i class="fas fa-arrow-right"></i>
+                        `;
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =================================================
+           PASSWORD SHOW / HIDE
+        ================================================= */
+
+        const passwordToggle =
+            document.getElementById(
+                "passwordToggle"
+            );
+
+
+        const passwordInput =
+            document.getElementById(
+                "loginPassword"
+            );
+
+
+        if (
+            passwordToggle &&
+            passwordInput
+        ) {
+
+            passwordToggle.addEventListener(
+                "click",
+                () => {
+
+                    const isPassword =
+                        passwordInput.type ===
+                        "password";
+
+
+                    passwordInput.type =
+                        isPassword
+                            ? "text"
+                            : "password";
+
+
+                    const icon =
+                        passwordToggle
+                            .querySelector("i");
+
+
+                    if (icon) {
+
+                        icon.classList.toggle(
+                            "fa-eye",
+                            !isPassword
+                        );
+
+                        icon.classList.toggle(
+                            "fa-eye-slash",
+                            isPassword
+                        );
+
+                    }
+
+
+                    passwordToggle.setAttribute(
+                        "aria-label",
+                        isPassword
+                            ? "Hide password"
+                            : "Show password"
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =================================================
+           REGISTER LINK
+        ================================================= */
+
+        const registerLink =
+            document.getElementById(
+                "registerLink"
+            );
+
+
+        if (registerLink) {
+
+            registerLink.addEventListener(
+                "click",
+                event => {
+
+                    event.preventDefault();
+
+
+                    showMessage(
+                        "Registration will be available soon.",
+                        "success"
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =================================================
+           MESSAGE FUNCTION
+        ================================================= */
+
+        function showMessage(
+            message,
+            type
+        ) {
+
+            if (!loginMessage) {
+                return;
+            }
+
+
+            loginMessage.textContent =
+                message;
+
+
+            loginMessage.className =
+                "login-message";
+
+
+            if (type) {
+
+                loginMessage.classList.add(
+                    type
+                );
+
+            }
+
+        }
+
+    </script>
 
 </body>
 </html>
