@@ -3,635 +3,1359 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Bright Career Convent Higher Secondary School - CBSE School"
+        content="Bright Career Convent Higher Secondary School - Learn, Grow and Succeed."
     >
 
-    <title>
-        Bright Career Convent Higher Secondary School
-    </title>
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
+    <meta
+        name="keywords"
+        content="Bright Career Convent, school, education, higher secondary school"
     >
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <meta name="author" content="Bright Career Convent Higher Secondary School">
 
+    <title>Bright Career Convent Higher Secondary School</title>
+
+    <!-- Google Font -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
+    <!-- Font Awesome -->
     <link
         rel="stylesheet"
-        href="style.css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+    <!-- ================= LOADER ================= -->
 
-<header class="navbar">
-
-    <a href="#home" class="logo">
-
-        <div class="logo-icon">
-            BC
-        </div>
-
-        <div>
-            <strong>Bright Career</strong>
-            <small>Convent School</small>
-        </div>
-
-    </a>
-
-    <nav id="navMenu">
-
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#academics">Academics</a>
-        <a href="#facilities">Facilities</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-
-        <a
-            href="login.html"
-            class="nav-login"
-        >
-            Login
-        </a>
-
-    </nav>
-
-    <button
-        class="menu-button"
-        onclick="toggleMenu()"
-    >
-        ☰
-    </button>
-
-</header>
-
-
-<!-- ================= HERO ================= -->
-
-<section
-    id="home"
-    class="hero"
->
-
-    <div class="hero-background"></div>
-
-    <div class="hero-content reveal">
-
-        <div class="hero-badge">
-            🎓 CBSE • Classes 1–12
-        </div>
-
-        <h1>
-            Inspiring Minds.
-            <span>Building Futures.</span>
-        </h1>
-
-        <p>
-            Welcome to Bright Career Convent Higher Secondary School,
-            where education meets excellence, character and opportunity.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="#about"
-                class="btn primary"
-            >
-                Explore Our School →
-            </a>
-
-            <a
-                href="login.html"
-                class="btn secondary"
-            >
-                Student Login
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="floating-card card-one">
-        <span>📚</span>
-        <div>
-            <strong>Classes 1–12</strong>
-            <small>Complete education</small>
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <img src="logo.jpg" alt="Bright Career Convent Logo">
+            <div class="loader-spinner"></div>
+            <p>Loading...</p>
         </div>
     </div>
 
-    <div class="floating-card card-two">
-        <span>🏆</span>
-        <div>
-            <strong>Excellence</strong>
-            <small>Learn • Grow • Achieve</small>
-        </div>
-    </div>
 
-</section>
+    <!-- ================= HEADER ================= -->
 
+    <header class="header" id="header">
 
-<!-- ================= STATS ================= -->
+        <div class="container navbar">
 
-<section class="stats">
+            <!-- Logo -->
 
-    <div class="stat">
-        <strong data-number="12">0</strong>
-        <span>Classes</span>
-    </div>
+            <a href="#home" class="logo">
 
-    <div class="stat">
-        <strong data-number="20">0</strong>
-        <span>Years of Growth</span>
-    </div>
+                <img
+                    src="logo.jpg"
+                    alt="Bright Career Convent School Logo"
+                >
 
-    <div class="stat">
-        <strong data-number="1000">0</strong>
-        <span>Students & Alumni</span>
-    </div>
-
-    <div class="stat">
-        <strong>CBSE</strong>
-        <span>Curriculum</span>
-    </div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section
-    id="about"
-    class="section"
->
-
-    <div class="section-heading reveal">
-
-        <span>ABOUT OUR SCHOOL</span>
-
-        <h2>
-            A place where
-            <em>potential becomes possibility.</em>
-        </h2>
-
-    </div>
-
-    <div class="about-grid">
-
-        <div class="about-image reveal">
-
-            <img
-                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80"
-                alt="Students learning in a classroom"
-            >
-
-            <div class="image-label">
-                <strong>Learn.</strong>
-                <strong>Lead.</strong>
-                <strong>Achieve.</strong>
-            </div>
-
-        </div>
-
-        <div class="about-text reveal">
-
-            <p class="lead">
-                Bright Career Convent Higher Secondary School
-                is dedicated to creating confident, responsible
-                and future-ready learners.
-            </p>
-
-            <p>
-                Our school aims to provide students with a balanced
-                education that combines academic learning, creativity,
-                discipline, technology, sports and values.
-            </p>
-
-            <p>
-                From the foundational years through senior secondary
-                education, students are encouraged to ask questions,
-                discover their strengths and prepare for the world
-                beyond school.
-            </p>
-
-            <a
-                href="#contact"
-                class="text-link"
-            >
-                Know more about us →
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= ACADEMICS ================= -->
-
-<section
-    id="academics"
-    class="section light-section"
->
-
-    <div class="section-heading centered reveal">
-
-        <span>ACADEMICS</span>
-
-        <h2>
-            Education for every
-            <em>stage of growth.</em>
-        </h2>
-
-        <p>
-            Our academic journey supports students from
-            foundational learning through senior secondary education.
-        </p>
-
-    </div>
-
-    <div class="classes-grid">
-
-        <div class="class-card reveal">
-            <div>01</div>
-            <h3>Primary</h3>
-            <p>Classes 1–5</p>
-            <span>Strong foundations</span>
-        </div>
-
-        <div class="class-card reveal">
-            <div>02</div>
-            <h3>Middle School</h3>
-            <p>Classes 6–8</p>
-            <span>Discover & explore</span>
-        </div>
-
-        <div class="class-card reveal">
-            <div>03</div>
-            <h3>Secondary</h3>
-            <p>Classes 9–10</p>
-            <span>Build academic strength</span>
-        </div>
-
-        <div class="class-card reveal">
-            <div>04</div>
-            <h3>Senior Secondary</h3>
-            <p>Classes 11–12</p>
-            <span>Prepare for the future</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= FEATURES ================= -->
-
-<section
-    id="facilities"
-    class="section"
->
-
-    <div class="section-heading reveal">
-
-        <span>WHY BRIGHT CAREER?</span>
-
-        <h2>
-            More than a school.
-            <em>A complete experience.</em>
-        </h2>
-
-    </div>
-
-    <div class="feature-grid">
-
-        <div class="feature reveal">
-            <div class="feature-icon">📖</div>
-            <h3>Quality Education</h3>
-            <p>
-                A learning environment designed to develop
-                strong academic foundations and independent thinking.
-            </p>
-        </div>
-
-        <div class="feature reveal">
-            <div class="feature-icon">💻</div>
-            <h3>Digital Learning</h3>
-            <p>
-                Technology-supported learning helps students
-                understand concepts in engaging ways.
-            </p>
-        </div>
-
-        <div class="feature reveal">
-            <div class="feature-icon">⚽</div>
-            <h3>Sports & Activities</h3>
-            <p>
-                Students get opportunities to develop teamwork,
-                confidence and physical fitness.
-            </p>
-        </div>
-
-        <div class="feature reveal">
-            <div class="feature-icon">🎨</div>
-            <h3>Creativity</h3>
-            <p>
-                Art, culture, events and creative activities
-                help students discover their individual talents.
-            </p>
-        </div>
-
-        <div class="feature reveal">
-            <div class="feature-icon">🌱</div>
-            <h3>Character Building</h3>
-            <p>
-                We encourage responsibility, discipline,
-                respect and positive values.
-            </p>
-        </div>
-
-        <div class="feature reveal">
-            <div class="feature-icon">🚀</div>
-            <h3>Future Ready</h3>
-            <p>
-                Students are encouraged to develop communication,
-                problem-solving and leadership skills.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= GALLERY ================= -->
-
-<section
-    id="gallery"
-    class="gallery-section"
->
-
-    <div class="section-heading centered reveal">
-
-        <span>SCHOOL LIFE</span>
-
-        <h2>
-            Moments that
-            <em>matter.</em>
-        </h2>
-
-    </div>
-
-    <div class="gallery">
-
-        <div class="gallery-item large reveal">
-
-            <img
-    src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=80"
-    alt="Students"
->
-            <img
-    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80"
-    alt="Classroom"
->
-
-        </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80"
-                alt="Classroom"
-            >
-
-            <div class="gallery-overlay">
-                Learning
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
-                alt="Students studying"
-            >
-
-            <div class="gallery-overlay">
-                Education
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=800"
-                alt="Student"
-            >
-
-            <div class="gallery-overlay">
-                Young Minds
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= NOTICE ================= -->
-
-<section class="section notice-section">
-
-    <div class="section-heading centered reveal">
-
-        <span>NOTICE BOARD</span>
-
-        <h2>
-            What's happening
-            <em>at school.</em>
-        </h2>
-
-    </div>
-
-    <div
-        id="notices"
-        class="notice-grid"
-    >
-        <div class="loading">
-            Loading notices...
-        </div>
-    </div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section
-    id="contact"
-    class="contact-section"
->
-
-    <div class="contact-container">
-
-        <div class="contact-info reveal">
-
-            <span>CONTACT US</span>
-
-            <h2>
-                Let's stay
-                <em>connected.</em>
-            </h2>
-
-            <p>
-                Have a question about admissions, academics
-                or school activities? Send us a message.
-            </p>
-
-            <div class="contact-details">
-
-                <div>
-                    <span>📍</span>
-                    <p>
-                        Bright Career Convent Higher Secondary School
-                    </p>
+                <div class="logo-text">
+                    <h2>Bright Career</h2>
+                    <span>Convent Higher Secondary School</span>
                 </div>
 
-                <div>
-                    <span>📞</span>
-                    <p>
-                        School Office
-                    </p>
-                </div>
+            </a>
 
-                <div>
-                    <span>✉️</span>
-                    <p>
-                        info@brightcareerconvent.edu.in
-                    </p>
-                </div>
 
-            </div>
-
-        </div>
-
-        <form
-            id="contactForm"
-            class="contact-form reveal"
-        >
-
-            <input
-                type="text"
-                id="contactName"
-                placeholder="Your name"
-                required
-            >
-
-            <input
-                type="email"
-                id="contactEmail"
-                placeholder="Your email"
-                required
-            >
-
-            <textarea
-                id="contactMessage"
-                placeholder="Your message"
-                rows="6"
-                required
-            ></textarea>
+            <!-- Mobile Menu Button -->
 
             <button
-                class="btn primary"
-                type="submit"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
             >
-                Send Message →
+                <i class="fas fa-bars"></i>
             </button>
 
-            <div id="contactStatus"></div>
 
-        </form>
+            <!-- Navigation -->
 
-    </div>
+            <nav class="nav">
 
-</section>
+                <ul class="nav-links" id="navLinks">
+
+                    <li>
+                        <a href="#home" class="active">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#academics">Academics</a>
+                    </li>
+
+                    <li>
+                        <a href="#facilities">Facilities</a>
+                    </li>
+
+                    <li>
+                        <a href="#notices">Notices</a>
+                    </li>
+
+                    <li>
+                        <a href="#gallery">Gallery</a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="login.html" class="login-btn">
+                            <i class="fas fa-user"></i>
+                            Student Login
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
 
 
-<!-- ================= FOOTER ================= -->
+    <!-- ================= HERO SECTION ================= -->
 
-<footer>
+    <main>
 
-    <div class="footer-main">
+        <section class="hero" id="home">
 
-        <div class="footer-brand">
+            <div class="hero-overlay"></div>
 
-            <div class="logo-icon">
-                BC
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="hero-tag">
+                        <i class="fas fa-graduation-cap"></i>
+                        Welcome to Our School
+                    </span>
+
+                    <h1>
+                        Bright Career Convent
+                        <span>Higher Secondary School</span>
+                    </h1>
+
+                    <p>
+                        Inspiring young minds to learn, grow and achieve
+                        their dreams through quality education and strong
+                        values.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#about" class="btn btn-primary">
+                            Discover More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Us
+                            <i class="fas fa-phone"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <h3>
-                Bright Career Convent
-            </h3>
+            <div class="hero-scroll">
+                <span>Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
 
-            <p>
-                Higher Secondary School
-            </p>
+        </section>
+
+
+        <!-- ================= QUICK FEATURES ================= -->
+
+        <section class="quick-features">
+
+            <div class="container feature-grid">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+
+                    <div>
+                        <h3>Quality Education</h3>
+                        <p>
+                            Building strong academic foundations.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+
+                    <div>
+                        <h3>Experienced Teachers</h3>
+                        <p>
+                            Supporting students at every step.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+
+                    <div>
+                        <h3>Student Development</h3>
+                        <p>
+                            Academics, sports and activities.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+
+                    <div>
+                        <h3>Strong Values</h3>
+                        <p>
+                            Character, discipline and responsibility.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="section about-section" id="about">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-tag">About Our School</span>
+
+                    <h2>
+                        Where Education Meets
+                        <span>Excellence</span>
+                    </h2>
+
+                    <p>
+                        A place where students are encouraged to learn,
+                        explore and become confident individuals.
+                    </p>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-image">
+
+                        <img
+                            src="school.jpg"
+                            alt="Bright Career Convent School"
+                        >
+
+                        <div class="experience-box">
+
+                            <strong>Learn</strong>
+                            <span>Grow • Achieve</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-content">
+
+                        <span class="small-title">
+                            <i class="fas fa-school"></i>
+                            Our Vision
+                        </span>
+
+                        <h3>
+                            Creating a brighter future through education.
+                        </h3>
+
+                        <p>
+                            Bright Career Convent Higher Secondary School
+                            aims to provide students with an environment
+                            where knowledge, creativity, discipline and
+                            confidence can grow together.
+                        </p>
+
+                        <p>
+                            We believe that education is not only about
+                            textbooks and examinations. It is also about
+                            developing good character, responsible citizens,
+                            teamwork and the confidence to face the future.
+                        </p>
+
+
+                        <div class="about-points">
+
+                            <div class="about-point">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Student-focused learning</span>
+                            </div>
+
+                            <div class="about-point">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Academic and personal development</span>
+                            </div>
+
+                            <div class="about-point">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Encouragement for sports and activities</span>
+                            </div>
+
+                            <div class="about-point">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Values, discipline and responsibility</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats-section">
+
+            <div class="container stats-grid">
+
+                <div class="stat-card">
+
+                    <i class="fas fa-user-graduate"></i>
+
+                    <h3
+                        class="counter"
+                        data-count="1000"
+                    >
+                        0
+                    </h3>
+
+                    <p>Students</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <i class="fas fa-chalkboard-teacher"></i>
+
+                    <h3
+                        class="counter"
+                        data-count="50"
+                    >
+                        0
+                    </h3>
+
+                    <p>Teachers & Staff</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <i class="fas fa-school"></i>
+
+                    <h3
+                        class="counter"
+                        data-count="20"
+                    >
+                        0
+                    </h3>
+
+                    <p>Years of Learning</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <i class="fas fa-award"></i>
+
+                    <h3
+                        class="counter"
+                        data-count="100"
+                    >
+                        0
+                    </h3>
+
+                    <p>Student Achievements</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACADEMICS ================= -->
+
+        <section class="section academics-section" id="academics">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-tag">Academics</span>
+
+                    <h2>
+                        Building Strong
+                        <span>Foundations</span>
+                    </h2>
+
+                    <p>
+                        Encouraging curiosity, understanding and lifelong
+                        learning.
+                    </p>
+
+                </div>
+
+
+                <div class="cards-grid">
+
+                    <article class="info-card">
+
+                        <div class="card-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+
+                        <h3>Science</h3>
+
+                        <p>
+                            Developing scientific thinking through
+                            observation, experiments and understanding
+                            the world around us.
+                        </p>
+
+                        <a href="#contact">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                    </article>
+
+
+                    <article class="info-card">
+
+                        <div class="card-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+
+                        <h3>Mathematics</h3>
+
+                        <p>
+                            Strengthening logical thinking, problem solving
+                            and mathematical reasoning.
+                        </p>
+
+                        <a href="#contact">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                    </article>
+
+
+                    <article class="info-card">
+
+                        <div class="card-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+
+                        <h3>Languages</h3>
+
+                        <p>
+                            Improving communication, reading, writing and
+                            confidence through language learning.
+                        </p>
+
+                        <a href="#contact">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                    </article>
+
+
+                    <article class="info-card">
+
+                        <div class="card-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+
+                        <h3>Social Studies</h3>
+
+                        <p>
+                            Understanding society, history, geography,
+                            democracy and our responsibilities.
+                        </p>
+
+                        <a href="#contact">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FACILITIES ================= -->
+
+        <section class="section facilities-section" id="facilities">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-tag">Our Facilities</span>
+
+                    <h2>
+                        A Better Environment
+                        <span>For Students</span>
+                    </h2>
+
+                    <p>
+                        Supporting education beyond the classroom.
+                    </p>
+
+                </div>
+
+
+                <div class="facilities-grid">
+
+                    <div class="facility-card">
+
+                        <div class="facility-image">
+                            <img
+                                src="schools.jpg"
+                                alt="School campus"
+                            >
+                        </div>
+
+                        <div class="facility-content">
+
+                            <div class="facility-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+
+                            <h3>Library</h3>
+
+                            <p>
+                                A learning space where students can read,
+                                explore and develop a habit of learning.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="facility-card">
+
+                        <div class="facility-image">
+                            <img
+                                src="school.jpg"
+                                alt="School building"
+                            >
+                        </div>
+
+                        <div class="facility-content">
+
+                            <div class="facility-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+
+                            <h3>Learning Spaces</h3>
+
+                            <p>
+                                Classrooms and learning environments
+                                designed to support students.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="facility-card">
+
+                        <div class="facility-image">
+                            <img
+                                src="schools.jpg"
+                                alt="School activities"
+                            >
+                        </div>
+
+                        <div class="facility-content">
+
+                            <div class="facility-icon">
+                                <i class="fas fa-running"></i>
+                            </div>
+
+                            <h3>Sports & Activities</h3>
+
+                            <p>
+                                Encouraging students to participate in
+                                sports and extracurricular activities.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= NOTICES ================= -->
+
+        <section class="section notices-section" id="notices">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-tag">Latest Updates</span>
+
+                    <h2>
+                        School
+                        <span>Notices</span>
+                    </h2>
+
+                    <p>
+                        Stay updated with important school announcements.
+                    </p>
+
+                </div>
+
+
+                <!-- Notices will be loaded from the database -->
+
+                <div
+                    class="notice-grid"
+                    id="noticeGrid"
+                >
+
+                    <div class="notice-loading">
+
+                        <div class="small-spinner"></div>
+
+                        <p>
+                            Loading notices...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= WHY CHOOSE US ================= -->
+
+        <section class="section why-section">
+
+            <div class="container">
+
+                <div class="why-grid">
+
+                    <div class="why-content">
+
+                        <span class="section-tag">
+                            Why Choose Us?
+                        </span>
+
+                        <h2>
+                            Helping Students
+                            <span>Reach Their Potential</span>
+                        </h2>
+
+                        <p>
+                            We aim to create an educational environment
+                            where students can discover their strengths,
+                            develop confidence and prepare themselves for
+                            the future.
+                        </p>
+
+
+                        <div class="why-list">
+
+                            <div class="why-item">
+
+                                <div class="why-number">
+                                    01
+                                </div>
+
+                                <div>
+                                    <h3>Learning</h3>
+                                    <p>
+                                        Focus on understanding concepts
+                                        instead of memorising everything.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="why-item">
+
+                                <div class="why-number">
+                                    02
+                                </div>
+
+                                <div>
+                                    <h3>Confidence</h3>
+                                    <p>
+                                        Encouraging students to express
+                                        ideas and participate actively.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="why-item">
+
+                                <div class="why-number">
+                                    03
+                                </div>
+
+                                <div>
+                                    <h3>Character</h3>
+                                    <p>
+                                        Promoting discipline, respect,
+                                        responsibility and teamwork.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="why-image">
+
+                        <img
+                            src="school.jpg"
+                            alt="Bright Career Convent campus"
+                        >
+
+                        <div class="quote-box">
+
+                            <i class="fas fa-quote-left"></i>
+
+                            <p>
+                                Education is the foundation of a brighter
+                                tomorrow.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= GALLERY ================= -->
+
+        <section class="section gallery-section" id="gallery">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-tag">Gallery</span>
+
+                    <h2>
+                        School
+                        <span>Moments</span>
+                    </h2>
+
+                    <p>
+                        A glimpse of our school environment.
+                    </p>
+
+                </div>
+
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item large">
+
+                        <img
+                            src="school.jpg"
+                            alt="Bright Career Convent School"
+                        >
+
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="schools.jpg"
+                            alt="School campus"
+                        >
+
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="logo.jpg"
+                            alt="School logo"
+                        >
+
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="school.jpg"
+                            alt="School building"
+                        >
+
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section class="section contact-section" id="contact">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-tag">Contact Us</span>
+
+                    <h2>
+                        Get In
+                        <span>Touch</span>
+                    </h2>
+
+                    <p>
+                        Have a question? Send us a message.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+                    <!-- Contact Information -->
+
+                    <div class="contact-info">
+
+                        <div class="contact-info-header">
+
+                            <span class="section-tag">
+                                School Information
+                            </span>
+
+                            <h3>
+                                We'd love to hear from you.
+                            </h3>
+
+                            <p>
+                                For admissions, school information or
+                                general enquiries, please contact the
+                                school office.
+                            </p>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+
+                            <div>
+                                <h4>Address</h4>
+                                <p>
+                                    Bright Career Convent Higher Secondary
+                                    School, Prithvipur, Madhya Pradesh
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+
+                            <div>
+                                <h4>Phone</h4>
+                                <p>
+                                    Contact the school office for details.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+
+                            <div>
+                                <h4>Email</h4>
+                                <p>
+                                    Contact the school office for email
+                                    information.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Contact Form -->
+
+                    <div class="contact-form-container">
+
+                        <form
+                            id="contactForm"
+                            class="contact-form"
+                        >
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="contactName">
+                                        Your Name
+                                    </label>
+
+                                    <div class="input-wrapper">
+
+                                        <i class="fas fa-user"></i>
+
+                                        <input
+                                            type="text"
+                                            id="contactName"
+                                            name="name"
+                                            placeholder="Enter your name"
+                                            required
+                                        >
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="contactEmail">
+                                        Email Address
+                                    </label>
+
+                                    <div class="input-wrapper">
+
+                                        <i class="fas fa-envelope"></i>
+
+                                        <input
+                                            type="email"
+                                            id="contactEmail"
+                                            name="email"
+                                            placeholder="Enter your email"
+                                            required
+                                        >
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="contactMessageInput">
+                                    Message
+                                </label>
+
+                                <div class="input-wrapper textarea-wrapper">
+
+                                    <i class="fas fa-message"></i>
+
+                                    <textarea
+                                        id="contactMessageInput"
+                                        name="message"
+                                        rows="6"
+                                        placeholder="Write your message..."
+                                        required
+                                    ></textarea>
+
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary submit-btn"
+                            >
+
+                                <span>
+                                    Send Message
+                                </span>
+
+                                <i class="fas fa-paper-plane"></i>
+
+                            </button>
+
+
+                            <div
+                                id="contactMessage"
+                                class="form-message"
+                            ></div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta-section">
+
+            <div class="container cta-content">
+
+                <div>
+
+                    <span class="section-tag">
+                        Begin Your Journey
+                    </span>
+
+                    <h2>
+                        Ready to Learn,
+                        <span>Grow & Succeed?</span>
+                    </h2>
+
+                    <p>
+                        Explore our school and stay connected with
+                        Bright Career Convent.
+                    </p>
+
+                </div>
+
+
+                <div class="cta-buttons">
+
+                    <a
+                        href="#contact"
+                        class="btn btn-light"
+                    >
+                        Contact Us
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                    <a
+                        href="login.html"
+                        class="btn btn-dark"
+                    >
+                        Student Login
+                        <i class="fas fa-user"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-about">
+
+                <a href="#home" class="footer-logo">
+
+                    <img
+                        src="logo.jpg"
+                        alt="Bright Career Convent Logo"
+                    >
+
+                    <div>
+                        <h3>Bright Career</h3>
+                        <span>Convent Higher Secondary School</span>
+                    </div>
+
+                </a>
+
+                <p>
+                    Inspiring students to learn, grow and build a
+                    brighter future.
+                </p>
+
+
+                <div class="social-links">
+
+                    <a
+                        href="#"
+                        aria-label="Facebook"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        aria-label="Instagram"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        aria-label="YouTube"
+                    >
+                        <i class="fab fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#academics">Academics</a>
+                    </li>
+
+                    <li>
+                        <a href="#facilities">Facilities</a>
+                    </li>
+
+                    <li>
+                        <a href="#gallery">Gallery</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Student</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="login.html">
+                            Student Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#notices">
+                            Notices
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Contact</h3>
+
+                <ul class="footer-contact">
+
+                    <li>
+                        <i class="fas fa-location-dot"></i>
+                        <span>
+                            Prithvipur, Madhya Pradesh
+                        </span>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>
+                            School Office
+                        </span>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>
+                            School Email
+                        </span>
+                    </li>
+
+                </ul>
+
+            </div>
 
         </div>
 
-        <div>
-            <h4>School</h4>
-            <a href="#about">About</a>
-            <a href="#academics">Academics</a>
-            <a href="#facilities">Facilities</a>
+
+        <div class="footer-bottom">
+
+            <div class="container footer-bottom-content">
+
+                <p>
+                    ©
+                    <span id="year"></span>
+                    Bright Career Convent Higher Secondary School.
+                    All Rights Reserved.
+                </p>
+
+                <p>
+                    Made with
+                    <i class="fas fa-heart"></i>
+                    for education.
+                </p>
+
+            </div>
+
         </div>
 
-        <div>
-            <h4>Quick Links</h4>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
-            <a href="login.html">Login</a>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-
-        <p>
-            © 2026 Bright Career Convent Higher Secondary School.
-            All Rights Reserved.
-        </p>
-
-    </div>
-
-</footer>
+    </footer>
 
 
-<script src="script.js"></script>
+    <!-- ================= BACK TO TOP ================= -->
+
+    <button
+        id="backToTop"
+        class="back-to-top"
+        aria-label="Back to top"
+    >
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <!-- Main JavaScript -->
+
+    <script src="script.js"></script>
 
 </body>
-node --version
 </html>
