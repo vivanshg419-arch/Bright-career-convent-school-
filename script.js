@@ -1028,12 +1028,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 /* =========================================================
-   SMOOTH SCROLL + SCROLL REVEAL
+   AUTOMATIC SMOOTH SCROLL ANIMATION
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* Smooth scrolling for navigation links */
+    /* Smooth scrolling */
 
     document.querySelectorAll('a[href^="#"]').forEach(link => {
 
@@ -1059,20 +1059,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* Scroll reveal observer */
+    /* Automatically select website sections */
 
-    const revealElements = document.querySelectorAll(
-        ".scroll-reveal, .scroll-left, .scroll-right, .scroll-scale, .reveal-card"
+    const sections = document.querySelectorAll(
+        "main > section, .section, section"
     );
 
-    const revealObserver = new IntersectionObserver(
+
+    /* Add animation automatically */
+
+    sections.forEach(section => {
+
+        section.style.opacity = "0";
+        section.style.transform = "translateY(45px)";
+        section.style.transition =
+            "opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1)";
+
+    });
+
+
+    /* Watch sections while scrolling */
+
+    const observer = new IntersectionObserver(
+
         (entries, observer) => {
 
             entries.forEach(entry => {
 
                 if (entry.isIntersecting) {
 
-                    entry.target.classList.add("show");
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
 
                     observer.unobserve(entry.target);
 
@@ -1081,15 +1098,17 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
         },
+
         {
             threshold: 0.12,
             rootMargin: "0px 0px -60px 0px"
         }
+
     );
 
 
-    revealElements.forEach(element => {
-        revealObserver.observe(element);
+    sections.forEach(section => {
+        observer.observe(section);
     });
 
 });
