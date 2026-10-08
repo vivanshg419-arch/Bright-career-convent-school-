@@ -8545,125 +8545,75 @@ a {
 
 }
 /* ==========================================
-   CTA - FINAL DESKTOP WIDTH FIX
+   CTA - FIX ONLY
 ========================================== */
 
 .cta-section {
-    display: block !important;
-
     width: 100% !important;
-    max-width: 1200px !important;
+    max-width: none !important;
 
-    margin: 0 auto !important;
+    margin: 0 !important;
 
     padding: 80px 0 !important;
 
-    background: linear-gradient(
-        135deg,
-        #155eef 0%,
-        #6c3cff 100%
-    ) !important;
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        ) !important;
 
-    color: #fff !important;
-
-    box-sizing: border-box !important;
+    color: var(--white);
 }
 
 
-/* CTA inner layout */
 .cta-section .cta-content {
-    width: 92% !important;
-    max-width: 1100px !important;
+    width: min(92%, var(--container)) !important;
+    max-width: var(--container) !important;
 
     margin: 0 auto !important;
-    padding: 0 !important;
 
     display: flex !important;
-    flex-direction: row !important;
-
     align-items: center !important;
     justify-content: space-between !important;
 
-    gap: 60px !important;
+    gap: 35px !important;
 }
 
 
-/* LEFT SIDE */
 .cta-section .cta-content > div:first-child {
-    flex: 1 1 60% !important;
-
-    width: auto !important;
-    max-width: 650px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
 }
 
 
-/* Heading */
-.cta-section h2 {
-    font-size: clamp(36px, 4vw, 52px) !important;
-    line-height: 1.15 !important;
-
-    margin-bottom: 12px !important;
-
-    white-space: normal !important;
-}
-
-
-/* Description */
-.cta-section p {
-    max-width: 600px !important;
-
-    font-size: 15px !important;
-}
-
-
-/* RIGHT SIDE BUTTONS */
 .cta-section .cta-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+
     flex: 0 0 auto !important;
 
     width: auto !important;
 
-    display: flex !important;
-    flex-direction: row !important;
-
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    gap: 14px !important;
-
-    white-space: nowrap !important;
+    gap: 10px !important;
 }
 
 
-/* Buttons */
 .cta-section .cta-buttons .btn {
     flex-shrink: 0 !important;
-    white-space: nowrap !important;
 }
 
 
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 800px) {
-
-    .cta-section {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
+/* Mobile — keep your existing mobile behavior */
+@media (max-width: 700px) {
 
     .cta-section .cta-content {
         flex-direction: column !important;
         align-items: flex-start !important;
-
-        gap: 30px !important;
     }
 
     .cta-section .cta-buttons {
         width: 100% !important;
-
-        justify-content: flex-start !important;
-
-        flex-wrap: wrap !important;
     }
+
 }
