@@ -8545,16 +8545,18 @@ a {
 
 }
 /* ==========================================
-   FINAL CTA FULL WIDTH + PROPER LAYOUT
+   CTA - FINAL DESKTOP WIDTH FIX
 ========================================== */
 
 .cta-section {
     display: block !important;
-    width: 100% !important;
-    max-width: none !important;
 
-    margin: 0 !important;
-    padding: 85px 0 !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+
+    margin: 0 auto !important;
+
+    padding: 80px 0 !important;
 
     background: linear-gradient(
         135deg,
@@ -8562,21 +8564,23 @@ a {
         #6c3cff 100%
     ) !important;
 
-    color: #ffffff !important;
+    color: #fff !important;
 
     box-sizing: border-box !important;
 }
 
 
-/* Inner CTA content */
+/* CTA inner layout */
 .cta-section .cta-content {
-    width: min(92%, 1200px) !important;
-    max-width: 1200px !important;
+    width: 92% !important;
+    max-width: 1100px !important;
 
     margin: 0 auto !important;
     padding: 0 !important;
 
     display: flex !important;
+    flex-direction: row !important;
+
     align-items: center !important;
     justify-content: space-between !important;
 
@@ -8584,52 +8588,53 @@ a {
 }
 
 
-/* Left side */
+/* LEFT SIDE */
 .cta-section .cta-content > div:first-child {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    max-width: 700px !important;
+    flex: 1 1 60% !important;
+
+    width: auto !important;
+    max-width: 650px !important;
 }
 
 
 /* Heading */
-.cta-section .cta-content h2 {
-    margin: 0 0 12px !important;
-
-    font-size: clamp(34px, 4vw, 52px) !important;
+.cta-section h2 {
+    font-size: clamp(36px, 4vw, 52px) !important;
     line-height: 1.15 !important;
 
-    color: #ffffff !important;
-}
+    margin-bottom: 12px !important;
 
-.cta-section .cta-content h2 span {
-    color: #bcd5ff !important;
+    white-space: normal !important;
 }
 
 
 /* Description */
-.cta-section .cta-content p {
-    margin: 0 !important;
+.cta-section p {
     max-width: 600px !important;
 
-    color: rgba(255,255,255,0.78) !important;
+    font-size: 15px !important;
+}
+
+
+/* RIGHT SIDE BUTTONS */
+.cta-section .cta-buttons {
+    flex: 0 0 auto !important;
+
+    width: auto !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    gap: 14px !important;
+
+    white-space: nowrap !important;
 }
 
 
 /* Buttons */
-.cta-section .cta-buttons {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    flex: 0 0 auto !important;
-
-    width: auto !important;
-    gap: 14px !important;
-}
-
-
-/* Make sure buttons don't get squeezed */
 .cta-section .cta-buttons .btn {
     flex-shrink: 0 !important;
     white-space: nowrap !important;
@@ -8642,6 +8647,11 @@ a {
 
 @media (max-width: 800px) {
 
+    .cta-section {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
     .cta-section .cta-content {
         flex-direction: column !important;
         align-items: flex-start !important;
@@ -8651,9 +8661,9 @@ a {
 
     .cta-section .cta-buttons {
         width: 100% !important;
+
         justify-content: flex-start !important;
 
         flex-wrap: wrap !important;
     }
-
 }
