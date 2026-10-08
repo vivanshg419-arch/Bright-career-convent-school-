@@ -8544,35 +8544,77 @@ a {
     }
 
 }
-/* =========================
-   CTA SIZE FIX
-========================= */
+/* ================================
+   FINAL CTA FIX
+================================ */
 
 .cta-section {
-    width: 100%;
-    padding: 90px 0;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+
+    padding: 90px 0 !important;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color: white;
+}
+
+.cta-section .container {
+    width: min(92%, var(--container)) !important;
+    max-width: var(--container) !important;
+    margin: 0 auto !important;
 }
 
 .cta-content {
-    width: min(92%, 1200px);
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex !important;
+    flex-direction: row !important;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center !important;
+    justify-content: space-between !important;
 
-    gap: 50px;
+    gap: 50px !important;
 }
 
 .cta-content > div:first-child {
-    flex: 1;
-    min-width: 0;
+    flex: 1 !important;
+    width: auto !important;
 }
 
 .cta-buttons {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    display: flex !important;
+    flex-shrink: 0 !important;
+
+    width: auto !important;
+
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    gap: 14px !important;
+}
+
+.cta-content h2 {
+    max-width: 700px;
+}
+
+.cta-content p {
+    max-width: 600px;
+}
+
+
+/* Mobile */
+@media (max-width: 900px) {
+    .cta-content {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .cta-buttons {
+        width: 100% !important;
+        justify-content: flex-start !important;
+    }
 }
