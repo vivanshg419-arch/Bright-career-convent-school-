@@ -4676,3 +4676,763 @@ ul {
     }
 
 }
+/* =========================================================
+   PREMIUM SCHOOL STAFF SECTION
+   ========================================================= */
+
+.staff-section {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(37, 99, 235, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(79, 70, 229, 0.10),
+            transparent 32%
+        ),
+        #f7f9ff;
+}
+
+
+/* Background glow */
+
+.staff-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(37, 99, 235, 0.07);
+
+    filter: blur(100px);
+
+    top: -220px;
+    left: -180px;
+
+    animation:
+        staffBackgroundOne 9s ease-in-out infinite;
+}
+
+
+.staff-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(99, 102, 241, 0.08);
+
+    filter: blur(100px);
+
+    right: -180px;
+    bottom: -200px;
+
+    animation:
+        staffBackgroundTwo 10s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.staff-heading {
+    position: relative;
+    z-index: 2;
+}
+
+
+.staff-heading h2 {
+    animation:
+        staffHeadingIn 0.9s ease both;
+}
+
+
+.staff-heading p {
+    max-width: 720px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.staff-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    margin-top: 65px;
+}
+
+
+/* =========================================================
+   STAFF IMAGE
+   ========================================================= */
+
+.staff-image-wrapper {
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    animation:
+        staffImageIn 1s ease both;
+}
+
+
+.staff-image-glow {
+
+    position: absolute;
+
+    width: 88%;
+    height: 88%;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.35),
+            rgba(99, 102, 241, 0.25)
+        );
+
+    filter: blur(35px);
+
+    animation:
+        staffGlow 4s ease-in-out infinite;
+}
+
+
+.staff-image-card {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    padding: 10px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: white;
+
+    box-shadow:
+        0 25px 65px
+        rgba(15, 23, 42, 0.16);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+.staff-image-card:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.015);
+
+    box-shadow:
+        0 35px 85px
+        rgba(37, 99, 235, 0.22);
+}
+
+
+.staff-image-card img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    max-height: 600px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    transition:
+        transform 0.8s ease,
+        filter 0.5s ease;
+}
+
+
+.staff-image-card:hover img {
+
+    transform: scale(1.035);
+
+    filter:
+        brightness(1.05);
+}
+
+
+/* Image overlay */
+
+.staff-image-overlay {
+
+    position: absolute;
+
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+
+    padding: 13px 18px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(7, 17, 31, 0.72);
+
+    backdrop-filter:
+        blur(12px);
+
+    color: white;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+
+.staff-image-card:hover .staff-image-overlay {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+.staff-image-overlay span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.staff-image-overlay i {
+
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   STAFF TEXT
+   ========================================================= */
+
+.staff-info {
+
+    animation:
+        staffInfoIn 1s ease 0.2s both;
+}
+
+
+.staff-label {
+
+    display: inline-block;
+
+    margin-bottom: 16px;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+.staff-info h3 {
+
+    margin: 0 0 24px;
+
+    color: #0f172a;
+
+    font-size:
+        clamp(34px, 4vw, 52px);
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+}
+
+
+.staff-info h3 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.staff-info > p {
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 17px;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.staff-features {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+    margin-top: 28px;
+}
+
+
+.staff-feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 17px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255, 255, 255, 0.8);
+
+    border:
+        1px solid rgba(37, 99, 235, 0.09);
+
+    box-shadow:
+        0 8px 25px
+        rgba(15, 23, 42, 0.05);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.staff-feature:hover {
+
+    transform:
+        translateX(10px);
+
+    border-color:
+        rgba(37, 99, 235, 0.28);
+
+    box-shadow:
+        0 14px 35px
+        rgba(37, 99, 235, 0.12);
+}
+
+
+.staff-feature-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(37, 99, 235, 0.22);
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.staff-feature:hover .staff-feature-icon {
+
+    transform:
+        rotate(-8deg)
+        scale(1.08);
+}
+
+
+.staff-feature h4 {
+
+    margin: 0 0 3px;
+
+    color: #0f172a;
+
+    font-size: 15px;
+}
+
+
+.staff-feature p {
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   BOTTOM MESSAGE
+   ========================================================= */
+
+.staff-message {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    max-width: 950px;
+
+    margin: 75px auto 0;
+
+    padding: 30px 35px;
+
+    border-radius: 23px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    box-shadow:
+        0 22px 55px
+        rgba(37, 99, 235, 0.22);
+
+    animation:
+        staffMessageFloat 4s ease-in-out infinite;
+}
+
+
+.staff-message > i {
+
+    font-size: 30px;
+
+    opacity: 0.75;
+
+    flex-shrink: 0;
+}
+
+
+.staff-message h3 {
+
+    margin: 0 0 7px;
+
+    font-size: 23px;
+}
+
+
+.staff-message h3 span {
+
+    color: #bfdbfe;
+}
+
+
+.staff-message p {
+
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes staffHeadingIn {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes staffImageIn {
+
+    from {
+        opacity: 0;
+        transform:
+            translateX(-70px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+
+@keyframes staffInfoIn {
+
+    from {
+        opacity: 0;
+        transform:
+            translateX(70px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateX(0);
+    }
+}
+
+
+@keyframes staffGlow {
+
+    0%,
+    100% {
+        transform:
+            scale(0.95);
+
+        opacity: 0.65;
+    }
+
+    50% {
+        transform:
+            scale(1.08);
+
+        opacity: 1;
+    }
+}
+
+
+@keyframes staffBackgroundOne {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(70px, 50px);
+    }
+}
+
+
+@keyframes staffBackgroundTwo {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(-60px, -45px);
+    }
+}
+
+
+@keyframes staffMessageFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-6px);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .staff-content {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .staff-image-wrapper {
+        order: 1;
+    }
+
+    .staff-info {
+        order: 2;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .staff-content {
+
+        margin-top: 40px;
+    }
+
+
+    .staff-image-card {
+
+        padding: 7px;
+
+        border-radius: 21px;
+    }
+
+
+    .staff-image-card img {
+
+        border-radius: 15px;
+    }
+
+
+    .staff-info h3 {
+
+        font-size: 34px;
+    }
+
+
+    .staff-info > p {
+
+        font-size: 15px;
+    }
+
+
+    .staff-message {
+
+        align-items: flex-start;
+
+        padding: 25px 22px;
+
+        gap: 16px;
+    }
+
+
+    .staff-message h3 {
+
+        font-size: 19px;
+    }
+
+
+    .staff-message p {
+
+        font-size: 13px;
+    }
+
+}
