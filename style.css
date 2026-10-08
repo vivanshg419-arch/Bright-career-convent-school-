@@ -8544,3 +8544,35 @@ a {
     }
 
 }
+/* =========================
+   CTA SIZE FIX
+========================= */
+
+.cta-section {
+    width: 100%;
+    padding: 90px 0;
+}
+
+.cta-content {
+    width: min(92%, 1200px);
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+.cta-content > div:first-child {
+    flex: 1;
+    min-width: 0;
+}
+
+.cta-buttons {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
