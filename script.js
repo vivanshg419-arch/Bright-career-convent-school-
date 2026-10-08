@@ -1112,3 +1112,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+/* =========================================================
+   CONTACT FORM → WHATSAPP
+   ========================================================= */
+
+const whatsappForm = document.getElementById("whatsappForm");
+
+if (whatsappForm) {
+
+    whatsappForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const name =
+            document.getElementById("visitorName").value.trim();
+
+        const email =
+            document.getElementById("visitorEmail").value.trim();
+
+        const message =
+            document.getElementById("visitorMessage").value.trim();
+
+
+        /*
+         * IMPORTANT:
+         * Put your WhatsApp number below.
+         *
+         * Use country code.
+         * For India use 91.
+         *
+         * Example:
+         * 917000866894
+         */
+
+        const whatsappNumber = "91XXXXXXXXXX";
+
+
+        const whatsappMessage =
+`Hello Bright Career Convent School,
+
+Name: ${name}
+
+Email: ${email}
+
+Message:
+${message}`;
+
+
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(whatsappMessage);
+
+
+        window.open(whatsappURL, "_blank");
+
+    });
+
+}
