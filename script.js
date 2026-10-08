@@ -1027,3 +1027,69 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+/* =========================================================
+   SMOOTH SCROLL + SCROLL REVEAL
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* Smooth scrolling for navigation links */
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+        link.addEventListener("click", function (e) {
+
+            const targetId = this.getAttribute("href");
+
+            if (!targetId || targetId === "#") return;
+
+            const target = document.querySelector(targetId);
+
+            if (!target) return;
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        });
+
+    });
+
+
+    /* Scroll reveal observer */
+
+    const revealElements = document.querySelectorAll(
+        ".scroll-reveal, .scroll-left, .scroll-right, .scroll-scale, .reveal-card"
+    );
+
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px 0px -60px 0px"
+        }
+    );
+
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+
+});
