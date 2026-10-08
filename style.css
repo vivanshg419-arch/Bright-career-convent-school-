@@ -7909,3 +7909,130 @@ ul {
     }
 
 }
+/* =========================================================
+   SMOOTH SCROLL + SCROLL REVEAL ANIMATION
+   ========================================================= */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent sections from hiding behind fixed header */
+section {
+    scroll-margin-top: 90px;
+}
+
+/* Scroll reveal base state */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* When section becomes visible */
+.scroll-reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Different animation directions */
+
+.scroll-left {
+    opacity: 0;
+    transform: translateX(-70px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-right {
+    opacity: 0;
+    transform: translateX(70px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-right.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-scale {
+    opacity: 0;
+    transform: scale(0.88);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-scale.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger animation for cards */
+
+.reveal-card {
+    opacity: 0;
+    transform: translateY(45px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.reveal-card:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.reveal-card:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.reveal-card:nth-child(4) {
+    transition-delay: 0.35s;
+}
+
+.reveal-card:nth-child(5) {
+    transition-delay: 0.45s;
+}
+
+.reveal-card:nth-child(6) {
+    transition-delay: 0.55s;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .scroll-reveal,
+    .scroll-left,
+    .scroll-right,
+    .scroll-scale,
+    .reveal-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+}
