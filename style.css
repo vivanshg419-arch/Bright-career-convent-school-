@@ -8036,3 +8036,511 @@ section {
     }
 
 }
+/* =========================================================
+   BRIGHT CAREER CONVENT
+   CONSISTENT DESIGN LANGUAGE
+   ========================================================= */
+
+/* ---------- DESIGN VARIABLES ---------- */
+
+:root {
+
+    /* Main Colors */
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #4f46e5;
+    --accent: #60a5fa;
+
+    /* Dark Colors */
+    --dark: #0f172a;
+    --dark-blue: #172554;
+    --navy: #1e3a8a;
+
+    /* Light Colors */
+    --white: #ffffff;
+    --light: #f8fafc;
+    --light-blue: #eff6ff;
+
+    /* Text */
+    --text: #334155;
+    --text-light: #64748b;
+
+    /* Borders */
+    --border: rgba(37, 99, 235, 0.12);
+
+    /* Shadows */
+    --shadow-sm:
+        0 5px 20px rgba(15, 23, 42, 0.08);
+
+    --shadow-md:
+        0 15px 40px rgba(15, 23, 42, 0.12);
+
+    --shadow-lg:
+        0 25px 70px rgba(15, 23, 42, 0.18);
+
+    --shadow-blue:
+        0 15px 35px rgba(37, 99, 235, 0.25);
+
+    /* Radius */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+
+    /* Animation */
+    --transition:
+        all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--light);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   SECTION CONSISTENCY
+   ========================================================= */
+
+section {
+    position: relative;
+}
+
+.container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.section-heading {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 55px;
+}
+
+.section-tag {
+    display: inline-block;
+
+    padding: 8px 17px;
+
+    border-radius: 50px;
+
+    background: var(--light-blue);
+
+    border: 1px solid var(--border);
+
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    color: var(--dark);
+
+    font-size: clamp(32px, 5vw, 52px);
+
+    line-height: 1.15;
+
+    font-weight: 800;
+}
+
+.section-heading h2 span {
+    color: var(--primary);
+}
+
+.section-heading p {
+    margin: 18px auto 0;
+
+    max-width: 680px;
+
+    color: var(--text-light);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   ALL MAIN CARDS
+   ========================================================= */
+
+.school-stat-card,
+.facility-card,
+.academic-card,
+.staff-card,
+.notice-card,
+.news-card,
+.quick-feature,
+.contact-card {
+
+    border-radius: var(--radius-lg);
+
+    transition: var(--transition);
+
+}
+
+
+/* Consistent hover effect */
+
+.school-stat-card:hover,
+.facility-card:hover,
+.academic-card:hover,
+.staff-card:hover,
+.notice-card:hover,
+.news-card:hover,
+.quick-feature:hover,
+.contact-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* =========================================================
+   CARD BORDERS
+   ========================================================= */
+
+.facility-card,
+.academic-card,
+.staff-card,
+.notice-card,
+.news-card,
+.contact-card {
+
+    border: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   ICON STYLE
+   ========================================================= */
+
+.facility-card i,
+.academic-card i,
+.quick-feature i,
+.contact-card i {
+
+    color: var(--primary);
+
+    transition: var(--transition);
+}
+
+.facility-card:hover i,
+.academic-card:hover i,
+.quick-feature:hover i,
+.contact-card:hover i {
+
+    transform: scale(1.12);
+
+    color: var(--secondary);
+}
+
+
+/* =========================================================
+   BUTTON SYSTEM
+   ========================================================= */
+
+button,
+.btn,
+a.btn {
+
+    border-radius: 12px;
+
+    transition: var(--transition);
+
+    font-weight: 700;
+
+}
+
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color: white;
+
+    border: none;
+
+    box-shadow: var(--shadow-blue);
+}
+
+.btn-primary:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 40px rgba(37, 99, 235, 0.35);
+}
+
+
+.btn-secondary {
+
+    background: white;
+
+    color: var(--primary);
+
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+
+    transform: translateY(-3px);
+
+    background: var(--light-blue);
+
+}
+
+
+/* =========================================================
+   IMAGE STYLE
+   ========================================================= */
+
+.about-image img,
+.staff-card img,
+.facility-card img {
+
+    border-radius: var(--radius-lg);
+
+    transition: var(--transition);
+}
+
+.about-image:hover img,
+.staff-card:hover img,
+.facility-card:hover img {
+
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   PREMIUM IMAGE OVERLAY
+   ========================================================= */
+
+.about-image,
+.staff-card,
+.facility-card {
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+textarea,
+select {
+
+    border: 1px solid #dbe3ef;
+
+    border-radius: 12px;
+
+    padding: 13px 15px;
+
+    background: white;
+
+    color: var(--text);
+
+    outline: none;
+
+    transition: var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   CONTACT CARDS
+   ========================================================= */
+
+.contact-card {
+
+    background: white;
+
+    padding: 25px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-card:hover {
+
+    border-color: rgba(37, 99, 235, 0.25);
+
+}
+
+
+/* =========================================================
+   STAFF CARDS
+   ========================================================= */
+
+.staff-card {
+
+    background: white;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.staff-card:hover {
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+
+/* =========================================================
+   NOTICE / NEWS CARDS
+   ========================================================= */
+
+.news-card,
+.notice-card {
+
+    background: white;
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+.news-card:hover,
+.notice-card:hover {
+
+    border-color:
+        rgba(37, 99, 235, 0.25);
+
+}
+
+
+/* =========================================================
+   SMALL BADGES
+   ========================================================= */
+
+.badge,
+.tag,
+.category {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 12px;
+
+    border-radius: 50px;
+
+    background: var(--light-blue);
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   CONSISTENT DIVIDERS
+   ========================================================= */
+
+.section-divider {
+
+    width: 70px;
+
+    height: 4px;
+
+    margin: 20px auto;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+}
+
+
+/* =========================================================
+   GLOW EFFECT
+   ========================================================= */
+
+.blue-glow {
+
+    box-shadow:
+        0 0 0 1px rgba(96, 165, 250, 0.1),
+        0 15px 40px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================================================
+   GLOBAL HOVER
+   ========================================================= */
+
+a {
+    transition: var(--transition);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .section-heading p {
+        font-size: 15px;
+    }
+
+}
