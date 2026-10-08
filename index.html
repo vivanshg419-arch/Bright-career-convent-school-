@@ -2219,42 +2219,35 @@
 
                     <!-- Contact Form -->
 
-                    <div class="contact-form-container">
+                   <form id="whatsappForm">
 
-                        <form
-                            id="contactForm"
-                            class="contact-form"
-                        >
+    <input
+        type="text"
+        id="visitorName"
+        placeholder="Your Name"
+        required
+    >
 
+    <input
+        type="email"
+        id="visitorEmail"
+        placeholder="Your Email"
+        required
+    >
 
-                            <div class="form-row">
+    <textarea
+        id="visitorMessage"
+        placeholder="Your Message"
+        rows="5"
+        required
+    ></textarea>
 
+    <button type="submit" class="btn btn-primary">
+        <i class="fab fa-whatsapp"></i>
+        Send on WhatsApp
+    </button>
 
-                                <div class="form-group">
-
-                                    <label for="contactName">
-                                        Your Name
-                                    </label>
-
-
-                                    <div class="input-wrapper">
-
-                                        <i class="fas fa-user"></i>
-
-                                        <input
-                                            type="text"
-                                            id="contactName"
-                                            name="name"
-                                            placeholder="Enter your name"
-                                            required
-                                        >
-
-                                    </div>
-
-                                </div>
-
-
-
+</form>
                                 <div class="form-group">
 
                                     <label for="contactEmail">
