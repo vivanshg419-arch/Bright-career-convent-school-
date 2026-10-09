@@ -1,637 +1,655 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07152f">
+  <meta name="description" content="Bright Career Convent Higher Secondary School">
+  <title>Bright Career Convent Higher Secondary School</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <meta
-        name="description"
-        content="Bright Career Convent Higher Secondary School - CBSE School"
-    >
+  <style>
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: grid;
+      place-items: center;
+      background: #06142e;
+      transition: opacity .4s, visibility .4s;
+    }
 
-    <title>
-        Bright Career Convent Higher Secondary School
-    </title>
+    #loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+    .loader-mark {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #ffffff33;
+      border-top-color: #18c8ff;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    .navbar.scrolled {
+      box-shadow: 0 10px 35px #07152f18;
+    }
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    .nav-links a.active {
+      color: #175cff;
+    }
+
+    .no-scroll { overflow: hidden; }
+
+    .stats-section {
+      position: relative;
+      z-index: 10;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .why-item {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: white;
+    }
+
+    .why-icon {
+      font-size: 28px;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+
+    .why-item p {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .notice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .contact-item i {
+      color: #61c8ff;
+      font-size: 22px;
+    }
+
+    #backToTop {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 900;
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: .25s;
+    }
+
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s, transform .7s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width: 900px) {
+      .why-grid, .notice-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 600px) {
+      .why-grid, .notice-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-mark"></div>
+  </div>
 
-<header class="navbar">
+  <!-- NAVIGATION -->
+  <header class="navbar" id="header">
 
-    <a href="#home" class="logo">
-
-        <div class="logo-icon">
-            BC
-        </div>
-
-        <div>
-            <strong>Bright Career</strong>
-            <small>Convent School</small>
-        </div>
-
+    <a class="logo" href="#home">
+      <span class="logo-icon">BC</span>
+      <span>
+        <strong>BRIGHT CAREER</strong>
+        <small>CONVENT HIGHER SECONDARY SCHOOL</small>
+      </span>
     </a>
 
-    <nav id="navMenu">
-
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#academics">Academics</a>
-        <a href="#facilities">Facilities</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-
-        <a
-            href="login.html"
-            class="nav-login"
-        >
-            Login
-        </a>
-
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#why-us">Why Choose Us</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#notices">Notices</a>
+      <a href="#contact">Contact</a>
+      <a href="login.html" class="nav-login">Login</a>
+      <a href="register.html" class="nav-login">Register</a>
     </nav>
 
-    <button
-        class="menu-button"
-        onclick="toggleMenu()"
-    >
-        ☰
+    <button class="menu-button" id="menuToggle" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars"></i>
     </button>
 
-</header>
+  </header>
 
+  <main>
 
-<!-- ================= HERO ================= -->
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
 
-<section
-    id="home"
-    class="hero"
->
+      <div class="hero-background"></div>
 
-    <div class="hero-background"></div>
-
-    <div class="hero-content reveal">
+      <div class="hero-content">
 
         <div class="hero-badge">
-            🎓 CBSE • Classes 1–12
+          <i class="fa-solid fa-graduation-cap"></i>
+          LEARN TODAY. LEAD TOMORROW.
         </div>
 
         <h1>
-            Inspiring Minds.
-            <span>Building Futures.</span>
+          A brighter future
+          <span>starts here.</span>
         </h1>
 
         <p>
-            Welcome to Bright Career Convent Higher Secondary School,
-            where education meets excellence, character and opportunity.
+          Welcome to Bright Career Convent Higher Secondary School.
+          We believe in quality education, strong values, creativity
+          and helping every student build a confident future.
         </p>
 
         <div class="hero-buttons">
+          <a href="#about" class="btn primary">
+            Discover Our School
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
 
-            <a
-                href="#about"
-                class="btn primary"
-            >
-                Explore Our School →
-            </a>
-
-            <a
-                href="login.html"
-                class="btn secondary"
-            >
-                Student Login
-            </a>
-
+          <a href="register.html" class="btn secondary">
+            <i class="fa-solid fa-user-plus"></i>
+            Register Now
+          </a>
         </div>
 
-    </div>
+      </div>
 
-    <div class="floating-card card-one">
-        <span>📚</span>
+      <div class="floating-card card-one">
+        <span>🎓</span>
         <div>
-            <strong>Classes 1–12</strong>
-            <small>Complete education</small>
+          <strong>Learning for Life</strong>
+          <small>Knowledge with values</small>
         </div>
-    </div>
+      </div>
 
-    <div class="floating-card card-two">
-        <span>🏆</span>
+      <div class="floating-card card-two">
+        <span>🌟</span>
         <div>
-            <strong>Excellence</strong>
-            <small>Learn • Grow • Achieve</small>
+          <strong>Every Student Matters</strong>
+          <small>Grow with confidence</small>
         </div>
-    </div>
+      </div>
 
-</section>
+    </section>
 
+    <!-- SCHOOL STATISTICS -->
+    <section class="stats stats-section">
 
-<!-- ================= STATS ================= -->
+      <div class="stat">
+        <strong><span class="counter" data-count="100">100</span>+</strong>
+        <span>Learning & Growth</span>
+      </div>
 
-<section class="stats">
+      <div class="stat">
+        <strong><span class="counter" data-count="20">20</span>+</strong>
+        <span>Dedicated Educators</span>
+      </div>
 
-    <div class="stat">
-        <strong data-number="12">0</strong>
-        <span>Classes</span>
-    </div>
+      <div class="stat">
+        <strong><span class="counter" data-count="10">10</span>+</strong>
+        <span>Learning Opportunities</span>
+      </div>
 
-    <div class="stat">
-        <strong data-number="20">0</strong>
-        <span>Years of Growth</span>
-    </div>
+      <div class="stat">
+        <strong><span class="counter" data-count="1">1</span></strong>
+        <span>One School Community</span>
+      </div>
 
-    <div class="stat">
-        <strong data-number="1000">0</strong>
-        <span>Students & Alumni</span>
-    </div>
+    </section>
 
-    <div class="stat">
-        <strong>CBSE</strong>
-        <span>Curriculum</span>
-    </div>
+    <!-- ABOUT SECTION -->
+    <section class="section light-section" id="about">
 
-</section>
+      <div class="about-grid">
 
+        <div class="about-image">
+          <img
+            src="staff.jpg"
+            alt="Bright Career Convent School staff"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='schools.jpg';"
+          >
 
-<!-- ================= ABOUT ================= -->
-
-<section
-    id="about"
-    class="section"
->
-
-    <div class="section-heading reveal">
-
-        <span>ABOUT OUR SCHOOL</span>
-
-        <h2>
-            A place where
-            <em>potential becomes possibility.</em>
-        </h2>
-
-    </div>
-
-    <div class="about-grid">
-
-        <div class="about-image reveal">
-
-            <img
-                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80"
-                alt="Students learning in a classroom"
-            >
-
-            <div class="image-label">
-                <strong>Learn.</strong>
-                <strong>Lead.</strong>
-                <strong>Achieve.</strong>
-            </div>
-
+          <div class="image-label">
+            <span>Growing</span>
+            <span>minds.</span>
+          </div>
         </div>
 
-        <div class="about-text reveal">
+        <div class="about-text">
 
-            <p class="lead">
-                Bright Career Convent Higher Secondary School
-                is dedicated to creating confident, responsible
-                and future-ready learners.
-            </p>
+          <div class="section-heading">
+            <span>ABOUT OUR SCHOOL</span>
+            <h2>Education with <em>purpose.</em></h2>
+          </div>
 
-            <p>
-                Our school aims to provide students with a balanced
-                education that combines academic learning, creativity,
-                discipline, technology, sports and values.
-            </p>
+          <p class="lead">
+            Every child deserves an opportunity to learn, explore and achieve.
+          </p>
 
-            <p>
-                From the foundational years through senior secondary
-                education, students are encouraged to ask questions,
-                discover their strengths and prepare for the world
-                beyond school.
-            </p>
+          <p>
+            Bright Career Convent Higher Secondary School aims to provide
+            a welcoming environment where students develop strong academic
+            foundations, curiosity and independent thinking.
+          </p>
 
-            <a
-                href="#contact"
-                class="text-link"
-            >
-                Know more about us →
-            </a>
+          <p>
+            We value discipline, creativity, teamwork, respect and the
+            confidence to take on new challenges.
+          </p>
+
+          <a href="#why-us" class="text-link">
+            Discover what makes us special
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
+    <!-- WHY CHOOSE US -->
+    <section class="section" id="why-us">
 
-<!-- ================= ACADEMICS ================= -->
-
-<section
-    id="academics"
-    class="section light-section"
->
-
-    <div class="section-heading centered reveal">
-
-        <span>ACADEMICS</span>
-
-        <h2>
-            Education for every
-            <em>stage of growth.</em>
-        </h2>
-
+      <div class="section-heading centered">
+        <span>WHY CHOOSE US</span>
+        <h2>A place to learn, <em>a place to grow.</em></h2>
         <p>
-            Our academic journey supports students from
-            foundational learning through senior secondary education.
+          We encourage students to develop knowledge, good habits,
+          creativity and lifelong skills.
         </p>
+      </div>
 
-    </div>
+      <div class="why-grid">
 
-    <div class="classes-grid">
+        <article class="why-item">
+          <div class="why-icon">
+            <i class="fa-solid fa-book-open-reader"></i>
+          </div>
+          <h3>Quality Education</h3>
+          <p>
+            Build strong concepts, curiosity and problem-solving skills
+            through meaningful learning.
+          </p>
+        </article>
 
-        <div class="class-card reveal">
-            <div>01</div>
-            <h3>Primary</h3>
-            <p>Classes 1–5</p>
-            <span>Strong foundations</span>
+        <article class="why-item">
+          <div class="why-icon">
+            <i class="fa-solid fa-people-group"></i>
+          </div>
+          <h3>Supportive Teachers</h3>
+          <p>
+            Encouragement and guidance help students ask questions
+            and keep improving.
+          </p>
+        </article>
+
+        <article class="why-item">
+          <div class="why-icon">
+            <i class="fa-solid fa-shield-heart"></i>
+          </div>
+          <h3>Values & Discipline</h3>
+          <p>
+            Respect, responsibility, kindness and honesty are important
+            parts of school life.
+          </p>
+        </article>
+
+        <article class="why-item">
+          <div class="why-icon">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h3>Creative Thinking</h3>
+          <p>
+            Students are encouraged to explore ideas, express themselves
+            and learn by doing.
+          </p>
+        </article>
+
+        <article class="why-item">
+          <div class="why-icon">
+            <i class="fa-solid fa-person-running"></i>
+          </div>
+          <h3>All-Round Development</h3>
+          <p>
+            Classroom learning, teamwork and activities support growth
+            beyond textbooks.
+          </p>
+        </article>
+
+        <article class="why-item">
+          <div class="why-icon">
+            <i class="fa-solid fa-handshake-angle"></i>
+          </div>
+          <h3>Positive Community</h3>
+          <p>
+            Students, families and educators work together to support
+            a positive learning journey.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- LEARNING SECTION -->
+    <section class="section light-section" id="learning">
+
+      <div class="section-heading centered">
+        <span>OUR LEARNING JOURNEY</span>
+        <h2>Building strong <em>foundations.</em></h2>
+        <p>
+          Helping students learn, improve and prepare for future opportunities.
+        </p>
+      </div>
+
+      <div class="classes-grid">
+
+        <article class="class-card">
+          <div>01 / FOUNDATION</div>
+          <h3>Explore</h3>
+          <p>Build curiosity and essential skills.</p>
+          <span>Discover & Learn</span>
+        </article>
+
+        <article class="class-card">
+          <div>02 / DEVELOPMENT</div>
+          <h3>Understand</h3>
+          <p>Strengthen concepts and independent thinking.</p>
+          <span>Think & Practice</span>
+        </article>
+
+        <article class="class-card">
+          <div>03 / CONFIDENCE</div>
+          <h3>Achieve</h3>
+          <p>Develop confidence through consistent effort.</p>
+          <span>Grow & Improve</span>
+        </article>
+
+        <article class="class-card">
+          <div>04 / THE FUTURE</div>
+          <h3>Lead</h3>
+          <p>Prepare for new opportunities and challenges.</p>
+          <span>Dream & Do</span>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- SCHOOL GALLERY -->
+    <section class="gallery-section" id="gallery">
+
+      <div class="section-heading centered">
+        <span style="color:#61c8ff">A GLIMPSE OF SCHOOL LIFE</span>
+        <h2>Our campus, <em>our community.</em></h2>
+        <p style="color:#b9c5dd">
+          A glimpse of our school and educators.
+        </p>
+      </div>
+
+      <div class="gallery">
+
+        <div class="gallery-item large">
+          <img src="schools.jpg" alt="School campus">
+          <div class="gallery-overlay">Our School</div>
         </div>
 
-        <div class="class-card reveal">
-            <div>02</div>
-            <h3>Middle School</h3>
-            <p>Classes 6–8</p>
-            <span>Discover & explore</span>
+        <div class="gallery-item">
+          <img src="staff.jpg" alt="School staff" onerror="this.onerror=null;this.src='schools.jpg';">
+          <div class="gallery-overlay">Our Educators</div>
         </div>
 
-        <div class="class-card reveal">
-            <div>03</div>
-            <h3>Secondary</h3>
-            <p>Classes 9–10</p>
-            <span>Build academic strength</span>
+        <div class="gallery-item">
+          <img src="schools.jpg" alt="School environment">
+          <div class="gallery-overlay">Learning Environment</div>
         </div>
 
-        <div class="class-card reveal">
-            <div>04</div>
-            <h3>Senior Secondary</h3>
-            <p>Classes 11–12</p>
-            <span>Prepare for the future</span>
+        <div class="gallery-item">
+          <img src="staff.jpg" alt="School team" onerror="this.onerror=null;this.src='schools.jpg';">
+          <div class="gallery-overlay">Our Community</div>
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- ================= FEATURES ================= -->
-
-<section
-    id="facilities"
-    class="section"
->
-
-    <div class="section-heading reveal">
-
-        <span>WHY BRIGHT CAREER?</span>
-
-        <h2>
-            More than a school.
-            <em>A complete experience.</em>
-        </h2>
-
-    </div>
-
-    <div class="feature-grid">
-
-        <div class="feature reveal">
-            <div class="feature-icon">📖</div>
-            <h3>Quality Education</h3>
-            <p>
-                A learning environment designed to develop
-                strong academic foundations and independent thinking.
-            </p>
+        <div class="gallery-item">
+          <img src="schools.jpg" alt="School campus view">
+          <div class="gallery-overlay">A Place to Grow</div>
         </div>
 
-        <div class="feature reveal">
-            <div class="feature-icon">💻</div>
-            <h3>Digital Learning</h3>
-            <p>
-                Technology-supported learning helps students
-                understand concepts in engaging ways.
-            </p>
-        </div>
+      </div>
 
-        <div class="feature reveal">
-            <div class="feature-icon">⚽</div>
-            <h3>Sports & Activities</h3>
-            <p>
-                Students get opportunities to develop teamwork,
-                confidence and physical fitness.
-            </p>
-        </div>
+    </section>
 
-        <div class="feature reveal">
-            <div class="feature-icon">🎨</div>
-            <h3>Creativity</h3>
-            <p>
-                Art, culture, events and creative activities
-                help students discover their individual talents.
-            </p>
-        </div>
+    <!-- NOTICES -->
+    <section class="section light-section" id="notices">
 
-        <div class="feature reveal">
-            <div class="feature-icon">🌱</div>
-            <h3>Character Building</h3>
-            <p>
-                We encourage responsibility, discipline,
-                respect and positive values.
-            </p>
-        </div>
+      <div class="section-heading centered">
+        <span>UPDATES & ANNOUNCEMENTS</span>
+        <h2>School <em>notices.</em></h2>
+        <p>Check this section for school announcements.</p>
+      </div>
 
-        <div class="feature reveal">
-            <div class="feature-icon">🚀</div>
-            <h3>Future Ready</h3>
-            <p>
-                Students are encouraged to develop communication,
-                problem-solving and leadership skills.
-            </p>
-        </div>
+      <div class="notice-grid" id="noticeGrid">
 
-    </div>
+        <article class="notice-card">
+          <div class="notice-icon"><i class="fa-solid fa-bell"></i></div>
+          <h3>Welcome to Our Website</h3>
+          <p>Visit this page for school information and announcements.</p>
+        </article>
 
-</section>
+        <article class="notice-card">
+          <div class="notice-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h3>Learning Comes First</h3>
+          <p>Stay curious, organised and ready to learn.</p>
+        </article>
 
+        <article class="notice-card">
+          <div class="notice-icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Stay Connected</h3>
+          <p>Contact the school for verified admissions information.</p>
+        </article>
 
-<!-- ================= GALLERY ================= -->
+      </div>
 
-<section
-    id="gallery"
-    class="gallery-section"
->
+    </section>
 
-    <div class="section-heading centered reveal">
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
 
-        <span>SCHOOL LIFE</span>
+      <div class="contact-container">
 
-        <h2>
-            Moments that
-            <em>matter.</em>
-        </h2>
+        <div class="contact-info">
+          <span>GET IN TOUCH</span>
+          <h2>Let’s start a <em>conversation.</em></h2>
 
-    </div>
+          <p>
+            Have a question about our school? Send us a message.
+          </p>
 
-    <div class="gallery">
+          <div class="contact-details">
 
-        <div class="gallery-item large reveal">
-
-            <img
-    src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=80"
-    alt="Students"
->
-            <img
-    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80"
-    alt="Classroom"
->
-
-        </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80"
-                alt="Classroom"
-            >
-
-            <div class="gallery-overlay">
-                Learning
+            <div class="contact-item">
+              <span><i class="fa-solid fa-location-dot"></i></span>
+              <p>
+                <strong>Visit Our School</strong><br>
+                Bright Career Convent Higher Secondary School
+              </p>
             </div>
 
-        </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
-                alt="Students studying"
-            >
-
-            <div class="gallery-overlay">
-                Education
+            <div class="contact-item">
+              <span><i class="fa-solid fa-envelope"></i></span>
+              <p>
+                <strong>School Enquiries</strong><br>
+                Send us your enquiry using the form.
+              </p>
             </div>
 
-        </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=800"
-                alt="Student"
-            >
-
-            <div class="gallery-overlay">
-                Young Minds
+            <div class="contact-item">
+              <span><i class="fa-brands fa-whatsapp"></i></span>
+              <p>
+                <strong>WhatsApp</strong><br>
+                Send your message directly through WhatsApp.
+              </p>
             </div>
 
+          </div>
         </div>
 
-    </div>
+        <form class="contact-form" id="whatsappForm">
 
-</section>
+          <input
+            id="visitorName"
+            name="name"
+            type="text"
+            placeholder="Your full name"
+            autocomplete="name"
+            required
+          >
 
+          <input
+            id="visitorEmail"
+            name="email"
+            type="email"
+            placeholder="Email address"
+            autocomplete="email"
+            required
+          >
 
-<!-- ================= NOTICE ================= -->
+          <textarea
+            id="visitorMessage"
+            name="message"
+            rows="5"
+            placeholder="Your message"
+            required
+          ></textarea>
 
-<section class="section notice-section">
-
-    <div class="section-heading centered reveal">
-
-        <span>NOTICE BOARD</span>
-
-        <h2>
-            What's happening
-            <em>at school.</em>
-        </h2>
-
-    </div>
-
-    <div
-        id="notices"
-        class="notice-grid"
-    >
-        <div class="loading">
-            Loading notices...
-        </div>
-    </div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section
-    id="contact"
-    class="contact-section"
->
-
-    <div class="contact-container">
-
-        <div class="contact-info reveal">
-
-            <span>CONTACT US</span>
-
-            <h2>
-                Let's stay
-                <em>connected.</em>
-            </h2>
-
-            <p>
-                Have a question about admissions, academics
-                or school activities? Send us a message.
-            </p>
-
-            <div class="contact-details">
-
-                <div>
-                    <span>📍</span>
-                    <p>
-                        Bright Career Convent Higher Secondary School
-                    </p>
-                </div>
-
-                <div>
-                    <span>📞</span>
-                    <p>
-                        School Office
-                    </p>
-                </div>
-
-                <div>
-                    <span>✉️</span>
-                    <p>
-                        info@brightcareerconvent.edu.in
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-        <form
-            id="contactForm"
-            class="contact-form reveal"
-        >
-
-            <input
-                type="text"
-                id="contactName"
-                placeholder="Your name"
-                required
-            >
-
-            <input
-                type="email"
-                id="contactEmail"
-                placeholder="Your email"
-                required
-            >
-
-            <textarea
-                id="contactMessage"
-                placeholder="Your message"
-                rows="6"
-                required
-            ></textarea>
-
-            <button
-                class="btn primary"
-                type="submit"
-            >
-                Send Message →
-            </button>
-
-            <div id="contactStatus"></div>
+          <button class="btn primary full submit-btn" type="submit">
+            Send via WhatsApp
+            <i class="fa-brands fa-whatsapp"></i>
+          </button>
 
         </form>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
+  </main>
 
-<!-- ================= FOOTER ================= -->
-
-<footer>
+  <!-- FOOTER -->
+  <footer>
 
     <div class="footer-main">
 
-        <div class="footer-brand">
+      <div class="footer-brand">
+        <a class="logo" href="#home">
+          <span class="logo-icon">BC</span>
+          <span>
+            <strong>BRIGHT CAREER</strong>
+            <small>CONVENT HIGHER SECONDARY SCHOOL</small>
+          </span>
+        </a>
+        <p>Learning with purpose. Growing with confidence.</p>
+      </div>
 
-            <div class="logo-icon">
-                BC
-            </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#about">About Us</a>
+        <a href="#why-us">Why Choose Us</a>
+        <a href="#gallery">Campus Gallery</a>
+        <a href="#notices">Notices</a>
+      </div>
 
-            <h3>
-                Bright Career Convent
-            </h3>
-
-            <p>
-                Higher Secondary School
-            </p>
-
-        </div>
-
-        <div>
-            <h4>School</h4>
-            <a href="#about">About</a>
-            <a href="#academics">Academics</a>
-            <a href="#facilities">Facilities</a>
-        </div>
-
-        <div>
-            <h4>Quick Links</h4>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
-            <a href="login.html">Login</a>
-        </div>
+      <div>
+        <h4>Student Portal</h4>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="#contact">Contact School</a>
+      </div>
 
     </div>
 
     <div class="footer-bottom">
-
-        <p>
-            © 2026 Bright Career Convent Higher Secondary School.
-            All Rights Reserved.
-        </p>
-
+      © <span id="year"></span>
+      Bright Career Convent Higher Secondary School. All rights reserved.
     </div>
 
-</footer>
+  </footer>
 
+  <button id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-<script src="script.js"></script>
+  <script src="script.js" defer></script>
 
 </body>
-node --version
 </html>
