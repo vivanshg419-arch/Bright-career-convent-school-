@@ -2216,3 +2216,41 @@ button:disabled {
         font-size: 12px;
     }
 }
+/* ===== PASSWORD SHOW/HIDE EYE BUTTON ===== */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 48px !important;
+    box-sizing: border-box;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #71809e;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.password-toggle:hover {
+    color: #2864ff;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid #2864ff;
+    border-radius: 5px;
+}
