@@ -2122,4 +2122,97 @@ button:disabled {
         transition: none;
     }
 }
-```
+/* ===== PREMIUM SCHOOL STATISTICS SECTION ===== */
+
+.stats-section {
+    position: relative;
+    z-index: 5;
+    width: min(1146px, calc(100% - 40px));
+    margin: -46px auto 0;
+    padding: 34px 28px;
+    background: #ffffff;
+    border-radius: 26px;
+    box-shadow: 0 22px 55px rgba(20, 35, 75, 0.10);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+.stats-section .stat-item {
+    min-width: 0;
+    min-height: 116px;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.stats-section .stat-item:not(:last-child) {
+    border-right: 1px solid #e5eaf3;
+}
+
+.stats-section .stat-item h3,
+.stats-section .stat-item .counter {
+    margin: 0;
+    color: #71809e;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.stats-section .stat-item .plus {
+    margin: 8px 0 10px;
+    color: #2864ff;
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.stats-section .stat-item p {
+    margin: 10px 0 0;
+    color: #71809e;
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 650;
+}
+
+/* Responsive layout for phones and tablets */
+@media (max-width: 700px) {
+    .stats-section {
+        width: calc(100% - 28px);
+        margin-top: -30px;
+        padding: 20px 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-radius: 20px;
+    }
+
+    .stats-section .stat-item {
+        min-height: 115px;
+        padding: 14px 8px;
+    }
+
+    .stats-section .stat-item:nth-child(2) {
+        border-right: none;
+    }
+
+    .stats-section .stat-item:nth-child(-n+2) {
+        border-bottom: 1px solid #e5eaf3;
+    }
+
+    .stats-section .stat-item .plus {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 360px) {
+    .stats-section {
+        width: calc(100% - 20px);
+    }
+
+    .stats-section .stat-item p {
+        font-size: 12px;
+    }
+}
